@@ -1,0 +1,629 @@
+{
+ "Description": "{\"createdOn\":\"Mac\",\"createdBy\":\"AmplifySandbox\",\"createdWith\":\"1.6.0\",\"stackType\":\"auth-Cognito\",\"metadata\":{}}",
+ "Resources": {
+  "amplifyAuthUserPool4BA7F805": {
+   "Type": "AWS::Cognito::UserPool",
+   "Properties": {
+    "AccountRecoverySetting": {
+     "RecoveryMechanisms": [
+      {
+       "Name": "verified_email",
+       "Priority": 1
+      }
+     ]
+    },
+    "AdminCreateUserConfig": {
+     "AllowAdminCreateUserOnly": false
+    },
+    "AutoVerifiedAttributes": [
+     "email"
+    ],
+    "EmailVerificationMessage": "\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>데이로그(Day Log) 인증</title>\n  <style>\n    body {\n      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n      color: #000;\n      margin: 0;\n      padding: 0;\n      background: #f6f6f6;\n    }\n    .email-wrapper {\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 20px;\n      background: #fff;\n    }\n    .email-header {\n      padding: 25px 0 20px;\n      text-align: center;\n    }\n    .email-logo {\n      font-size: 24px;\n      font-weight: bold;\n      color: #000 !important;\n      text-decoration: none;\n    }\n    .email-body {\n      padding: 30px 0;\n      border-top: 1px solid #e6e6e6;\n      border-bottom: 1px solid #e6e6e6;\n    }\n    .email-title {\n      margin-top: 0;\n      color: #000;\n      font-size: 20px;\n      font-weight: 600;\n      line-height: 1.5;\n    }\n    .email-message {\n      margin-top: 15px;\n      color: #444;\n      font-size: 16px;\n      line-height: 1.6;\n    }\n    .verification-code {\n      display: inline-block;\n      margin: 30px 0;\n      padding: 15px 30px;\n      font-family: monospace;\n      font-size: 24px;\n      font-weight: bold;\n      letter-spacing: 5px;\n      color: #000;\n      background-color: #f4f4f4;\n      border-radius: 5px;\n    }\n    .email-footer {\n      padding: 20px 0;\n      color: #666;\n      font-size: 14px;\n    }\n    a {\n      color: inherit;\n      text-decoration: none;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"email-wrapper\">\n    <div class=\"email-header\">\n      <span class=\"email-logo\">데이로그(Day Log)</span>\n    </div>\n    <div class=\"email-body\">\n      <h1 class=\"email-title\">회원가입을 완료하세요</h1>\n      <p class=\"email-message\">데이로그에 오신 것을 환영합니다! 아래 인증 코드를 입력하여 회원가입을 완료해 주세요.</p>\n      <div class=\"verification-code\">{####}</div>\n      <p class=\"email-message\">이 코드는 10분 동안 유효하며, 본인이 요청하지 않았다면 이 이메일을 무시하셔도 됩니다.</p>\n    </div>\n    <div class=\"email-footer\">\n      <p>&copy; 2025 데이로그(Day Log). All rights reserved.</p>\n      <p>이 메일은 회원가입 과정에서 자동으로 발송되었습니다.</p>\n    </div>\n  </div>\n</body>\n</html>\n        ",
+    "EmailVerificationSubject": "데이로그(Day Log) 회원가입을 완료해주세요.",
+    "Policies": {
+     "PasswordPolicy": {
+      "MinimumLength": 8,
+      "RequireLowercase": true,
+      "RequireNumbers": true,
+      "RequireSymbols": true,
+      "RequireUppercase": true
+     }
+    },
+    "Schema": [
+     {
+      "Mutable": true,
+      "Name": "email",
+      "Required": true
+     }
+    ],
+    "SmsVerificationMessage": "The verification code to your new account is {####}",
+    "UserAttributeUpdateSettings": {
+     "AttributesRequireVerificationBeforeUpdate": [
+      "email"
+     ]
+    },
+    "UserPoolTags": {
+     "amplify:deployment-type": "sandbox",
+     "amplify:friendly-name": "amplifyAuth",
+     "created-by": "amplify"
+    },
+    "UsernameAttributes": [
+     "email"
+    ],
+    "UsernameConfiguration": {
+     "CaseSensitive": false
+    },
+    "VerificationMessageTemplate": {
+     "DefaultEmailOption": "CONFIRM_WITH_CODE",
+     "EmailMessage": "\n<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>데이로그(Day Log) 인증</title>\n  <style>\n    body {\n      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;\n      color: #000;\n      margin: 0;\n      padding: 0;\n      background: #f6f6f6;\n    }\n    .email-wrapper {\n      max-width: 600px;\n      margin: 0 auto;\n      padding: 20px;\n      background: #fff;\n    }\n    .email-header {\n      padding: 25px 0 20px;\n      text-align: center;\n    }\n    .email-logo {\n      font-size: 24px;\n      font-weight: bold;\n      color: #000 !important;\n      text-decoration: none;\n    }\n    .email-body {\n      padding: 30px 0;\n      border-top: 1px solid #e6e6e6;\n      border-bottom: 1px solid #e6e6e6;\n    }\n    .email-title {\n      margin-top: 0;\n      color: #000;\n      font-size: 20px;\n      font-weight: 600;\n      line-height: 1.5;\n    }\n    .email-message {\n      margin-top: 15px;\n      color: #444;\n      font-size: 16px;\n      line-height: 1.6;\n    }\n    .verification-code {\n      display: inline-block;\n      margin: 30px 0;\n      padding: 15px 30px;\n      font-family: monospace;\n      font-size: 24px;\n      font-weight: bold;\n      letter-spacing: 5px;\n      color: #000;\n      background-color: #f4f4f4;\n      border-radius: 5px;\n    }\n    .email-footer {\n      padding: 20px 0;\n      color: #666;\n      font-size: 14px;\n    }\n    a {\n      color: inherit;\n      text-decoration: none;\n    }\n  </style>\n</head>\n<body>\n  <div class=\"email-wrapper\">\n    <div class=\"email-header\">\n      <span class=\"email-logo\">데이로그(Day Log)</span>\n    </div>\n    <div class=\"email-body\">\n      <h1 class=\"email-title\">회원가입을 완료하세요</h1>\n      <p class=\"email-message\">데이로그에 오신 것을 환영합니다! 아래 인증 코드를 입력하여 회원가입을 완료해 주세요.</p>\n      <div class=\"verification-code\">{####}</div>\n      <p class=\"email-message\">이 코드는 10분 동안 유효하며, 본인이 요청하지 않았다면 이 이메일을 무시하셔도 됩니다.</p>\n    </div>\n    <div class=\"email-footer\">\n      <p>&copy; 2025 데이로그(Day Log). All rights reserved.</p>\n      <p>이 메일은 회원가입 과정에서 자동으로 발송되었습니다.</p>\n    </div>\n  </div>\n</body>\n</html>\n        ",
+     "EmailSubject": "데이로그(Day Log) 회원가입을 완료해주세요.",
+     "SmsMessage": "The verification code to your new account is {####}"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPool/Resource"
+   }
+  },
+  "amplifyAuthUserPoolUserPoolDomain1F688B5B": {
+   "Type": "AWS::Cognito::UserPoolDomain",
+   "Properties": {
+    "Domain": "6d3a453db02551a00f5e",
+    "UserPoolId": {
+     "Ref": "amplifyAuthUserPool4BA7F805"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPool/UserPoolDomain/Resource"
+   }
+  },
+  "amplifyAuthUserPoolAppClient2626C6F8": {
+   "Type": "AWS::Cognito::UserPoolClient",
+   "Properties": {
+    "AllowedOAuthFlows": [
+     "code"
+    ],
+    "AllowedOAuthFlowsUserPoolClient": true,
+    "AllowedOAuthScopes": [
+     "phone",
+     "email",
+     "openid",
+     "profile",
+     "aws.cognito.signin.user.admin"
+    ],
+    "CallbackURLs": [
+     "http://localhost:3000/login",
+     "https://mywebsite.com/login"
+    ],
+    "ExplicitAuthFlows": [
+     "ALLOW_CUSTOM_AUTH",
+     "ALLOW_USER_SRP_AUTH",
+     "ALLOW_REFRESH_TOKEN_AUTH"
+    ],
+    "LogoutURLs": [
+     "http://localhost:3000/logout",
+     "https://mywebsite.com/logout"
+    ],
+    "PreventUserExistenceErrors": "ENABLED",
+    "SupportedIdentityProviders": [
+     "COGNITO"
+    ],
+    "UserPoolId": {
+     "Ref": "amplifyAuthUserPool4BA7F805"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPoolAppClient/Resource"
+   }
+  },
+  "amplifyAuthIdentityPool3FDE84CC": {
+   "Type": "AWS::Cognito::IdentityPool",
+   "Properties": {
+    "AllowUnauthenticatedIdentities": true,
+    "CognitoIdentityProviders": [
+     {
+      "ClientId": {
+       "Ref": "amplifyAuthUserPoolAppClient2626C6F8"
+      },
+      "ProviderName": {
+       "Fn::Join": [
+        "",
+        [
+         "cognito-idp.",
+         {
+          "Ref": "AWS::Region"
+         },
+         ".amazonaws.com/",
+         {
+          "Ref": "amplifyAuthUserPool4BA7F805"
+         }
+        ]
+       ]
+      }
+     }
+    ],
+    "IdentityPoolTags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyAuth"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ],
+    "SupportedLoginProviders": {}
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/IdentityPool"
+   }
+  },
+  "amplifyAuthauthenticatedUserRoleD8DA3689": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRoleWithWebIdentity",
+       "Condition": {
+        "StringEquals": {
+         "cognito-identity.amazonaws.com:aud": {
+          "Ref": "amplifyAuthIdentityPool3FDE84CC"
+         }
+        },
+        "ForAnyValue:StringLike": {
+         "cognito-identity.amazonaws.com:amr": "authenticated"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Federated": "cognito-identity.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyAuth"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/authenticatedUserRole/Resource"
+   }
+  },
+  "amplifyAuthunauthenticatedUserRole2B524D9E": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRoleWithWebIdentity",
+       "Condition": {
+        "StringEquals": {
+         "cognito-identity.amazonaws.com:aud": {
+          "Ref": "amplifyAuthIdentityPool3FDE84CC"
+         }
+        },
+        "ForAnyValue:StringLike": {
+         "cognito-identity.amazonaws.com:amr": "unauthenticated"
+        }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "Federated": "cognito-identity.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyAuth"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/unauthenticatedUserRole/Resource"
+   }
+  },
+  "amplifyAuthIdentityPoolRoleAttachment045F17C8": {
+   "Type": "AWS::Cognito::IdentityPoolRoleAttachment",
+   "Properties": {
+    "IdentityPoolId": {
+     "Ref": "amplifyAuthIdentityPool3FDE84CC"
+    },
+    "RoleMappings": {
+     "UserPoolWebClientRoleMapping": {
+      "AmbiguousRoleResolution": "AuthenticatedRole",
+      "IdentityProvider": {
+       "Fn::Join": [
+        "",
+        [
+         "cognito-idp.",
+         {
+          "Ref": "AWS::Region"
+         },
+         ".amazonaws.com/",
+         {
+          "Ref": "amplifyAuthUserPool4BA7F805"
+         },
+         ":",
+         {
+          "Ref": "amplifyAuthUserPoolAppClient2626C6F8"
+         }
+        ]
+       ]
+      },
+      "Type": "Token"
+     }
+    },
+    "Roles": {
+     "unauthenticated": {
+      "Fn::GetAtt": [
+       "amplifyAuthunauthenticatedUserRole2B524D9E",
+       "Arn"
+      ]
+     },
+     "authenticated": {
+      "Fn::GetAtt": [
+       "amplifyAuthauthenticatedUserRoleD8DA3689",
+       "Arn"
+      ]
+     }
+    }
+   },
+   "DependsOn": [
+    "amplifyAuthIdentityPool3FDE84CC",
+    "amplifyAuthUserPoolAppClient2626C6F8"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/IdentityPoolRoleAttachment"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02Myw6CQAxFv8X9UIENa4MbN8ZgXJtxpmp5tAlTJIbw74Ygyuqee3rTFJIsg3hj+xA5X0U13WA4YlD0Z7WuMrYP18HJg0kFhkvA9iRSm/zOP15gL40lXp++Zql5Tci6HvzNwSMr6Xv5vu6F1LhTte7ZIOtoyDYwTHIaTjmOpsAgXetmteJc2JOS8GhYPEIZtq80hiSGeFMGoqjtWKlBKOb8AKmhOTkRAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Conditions": {
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-3"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-4"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "AWS::Region"
+      },
+      "us-west-2"
+     ]
+    }
+   ]
+  }
+ },
+ "Outputs": {
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolD9861F0ARef": {
+   "Value": {
+    "Ref": "amplifyAuthUserPool4BA7F805"
+   }
+  },
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolAppClientEFE62D7DRef": {
+   "Value": {
+    "Ref": "amplifyAuthUserPoolAppClient2626C6F8"
+   }
+  },
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref": {
+   "Value": {
+    "Ref": "amplifyAuthIdentityPool3FDE84CC"
+   }
+  },
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolUserPoolDomain02644519Ref": {
+   "Value": {
+    "Ref": "amplifyAuthUserPoolUserPoolDomain1F688B5B"
+   }
+  },
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef": {
+   "Value": {
+    "Ref": "amplifyAuthauthenticatedUserRoleD8DA3689"
+   }
+  },
+  "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref": {
+   "Value": {
+    "Ref": "amplifyAuthunauthenticatedUserRole2B524D9E"
+   }
+  }
+ }
+}

@@ -1,0 +1,2260 @@
+{
+ "Parameters": {
+  "DynamoDBModelTableReadIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of read IOPS the table should support."
+  },
+  "DynamoDBModelTableWriteIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of write IOPS the table should support."
+  },
+  "DynamoDBBillingMode": {
+   "Type": "String",
+   "Default": "PAY_PER_REQUEST",
+   "AllowedValues": [
+    "PAY_PER_REQUEST",
+    "PROVISIONED"
+   ],
+   "Description": "Configure @model types to create DynamoDB tables with PAY_PER_REQUEST or PROVISIONED billing modes."
+  },
+  "DynamoDBEnablePointInTimeRecovery": {
+   "Type": "String",
+   "Default": "false",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Whether to enable Point in Time Recovery on the table."
+  },
+  "DynamoDBEnableServerSideEncryption": {
+   "Type": "String",
+   "Default": "true",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Enable server side encryption powered by KMS."
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource0079CE5COutputsamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTab4D2931D4": {
+   "Type": "String"
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId": {
+   "Type": "String"
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name": {
+   "Type": "String"
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef": {
+   "Type": "String"
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref": {
+   "Type": "String"
+  },
+  "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref": {
+   "Type": "String"
+  }
+ },
+ "Conditions": {
+  "HasEnvironmentParameter": {
+   "Fn::Not": [
+    {
+     "Fn::Equals": [
+      "NONE",
+      "NONE"
+     ]
+    }
+   ]
+  },
+  "ShouldUseServerSideEncryption": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBEnableServerSideEncryption"
+    },
+    "true"
+   ]
+  },
+  "ShouldUsePayPerRequestBilling": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBBillingMode"
+    },
+    "PAY_PER_REQUEST"
+   ]
+  },
+  "ShouldUsePointInTimeRecovery": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBEnablePointInTimeRecovery"
+    },
+    "true"
+   ]
+  },
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-3"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-4"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "AWS::Region"
+      },
+      "us-west-2"
+     ]
+    }
+   ]
+  }
+ },
+ "Resources": {
+  "DailyTable": {
+   "Type": "Custom::AmplifyDynamoDBTable",
+   "Properties": {
+    "ServiceToken": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource0079CE5COutputsamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTab4D2931D4"
+    },
+    "tableName": {
+     "Fn::Join": [
+      "",
+      [
+       "Daily-",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "attributeDefinitions": [
+     {
+      "attributeName": "userId",
+      "attributeType": "S"
+     },
+     {
+      "attributeName": "date",
+      "attributeType": "S"
+     }
+    ],
+    "keySchema": [
+     {
+      "attributeName": "userId",
+      "keyType": "HASH"
+     },
+     {
+      "attributeName": "date",
+      "keyType": "RANGE"
+     }
+    ],
+    "provisionedThroughput": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      {
+       "Ref": "AWS::NoValue"
+      },
+      {
+       "ReadCapacityUnits": {
+        "Ref": "DynamoDBModelTableReadIOPS"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "DynamoDBModelTableWriteIOPS"
+       }
+      }
+     ]
+    },
+    "sseSpecification": {
+     "sseEnabled": {
+      "Fn::If": [
+       "ShouldUseServerSideEncryption",
+       true,
+       false
+      ]
+     }
+    },
+    "streamSpecification": {
+     "streamViewType": "NEW_AND_OLD_IMAGES"
+    },
+    "allowDestructiveGraphqlSchemaUpdates": true,
+    "replaceTableUponGsiUpdate": true,
+    "pointInTimeRecoverySpecification": {
+     "Fn::If": [
+      "ShouldUsePointInTimeRecovery",
+      {
+       "PointInTimeRecoveryEnabled": true
+      },
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    },
+    "billingMode": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      "PAY_PER_REQUEST",
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyTable/Default/Default"
+   }
+  },
+  "DailyIAMRole982357AF": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "appsync.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": [
+          "dynamodb:BatchGetItem",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query",
+          "dynamodb:UpdateItem",
+          "dynamodb:ConditionCheckItem",
+          "dynamodb:DescribeTable",
+          "dynamodb:GetRecords",
+          "dynamodb:GetShardIterator"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::Sub": [
+            "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "Daily-",
+                {
+                 "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          },
+          {
+           "Fn::Sub": [
+            "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}/*",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "Daily-",
+                {
+                 "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "DynamoDBAccess"
+     }
+    ],
+    "RoleName": {
+     "Fn::Join": [
+      "",
+      [
+       "DailyIAMRole56f6a1-",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyData"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyIAMRole/Resource"
+   }
+  },
+  "DailyDataSource": {
+   "Type": "AWS::AppSync::DataSource",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DynamoDBConfig": {
+     "AwsRegion": {
+      "Ref": "AWS::Region"
+     },
+     "TableName": {
+      "Fn::Select": [
+       1,
+       {
+        "Fn::Split": [
+         "/",
+         {
+          "Fn::Select": [
+           5,
+           {
+            "Fn::Split": [
+             ":",
+             {
+              "Fn::GetAtt": [
+               "DailyTable",
+               "TableArn"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "Name": "DailyTable",
+    "ServiceRoleArn": {
+     "Fn::GetAtt": [
+      "DailyIAMRole982357AF",
+      "Arn"
+     ]
+    },
+    "Type": "AMAZON_DYNAMODB"
+   },
+   "DependsOn": [
+    "DailyIAMRole982357AF"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyDataSource/Resource"
+   }
+  },
+  "QuerygetDailypreAuth0FunctionQuerygetDailypreAuth0FunctionAppSyncFunction3A679273": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetDailypreAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/aef02e6423eb26791a6b2918322f39c279f2ae09b5604583229e59ae5e9b8974.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailypreAuth0Function/QuerygetDailypreAuth0Function.AppSyncFunction"
+   }
+  },
+  "QuerygetDailyauth0FunctionQuerygetDailyauth0FunctionAppSyncFunction08A6A0DE": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6b25c9b572c67e0f7ad41cb8019a90825f3db4b02a0a15b837c7a82dcb302060.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailyauth0Function/QuerygetDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerygetDailypostAuth0FunctionQuerygetDailypostAuth0FunctionAppSyncFunction265E2B8A": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailypostAuth0Function/QuerygetDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryGetDailyDataResolverFnQueryGetDailyDataResolverFnAppSyncFunctionBAC7E21D": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryGetDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/08f4d557693d96c1a4efba0f9dc91330e4b19772fd5477c156468843e3d9cb5e.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4c6a2d29f01c6091bd1d9afe16e5849d456c96f17c3b215938c8067399532719.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QueryGetDailyDataResolverFn/QueryGetDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "GetDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "getDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerygetDailypreAuth0FunctionQuerygetDailypreAuth0FunctionAppSyncFunction3A679273",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerygetDailyauth0FunctionQuerygetDailyauth0FunctionAppSyncFunction08A6A0DE",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerygetDailypostAuth0FunctionQuerygetDailypostAuth0FunctionAppSyncFunction265E2B8A",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryGetDailyDataResolverFnQueryGetDailyDataResolverFnAppSyncFunctionBAC7E21D",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "DailyTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/queryGetDailyResolver"
+   }
+  },
+  "QuerylistDailiespreAuth0FunctionQuerylistDailiespreAuth0FunctionAppSyncFunctionFA6C2D4D": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistDailiespreAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d289c0e1164d530715ea5cc56638e27fda6fffa31fe5d3ef933610d3eac6a642.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiespreAuth0Function/QuerylistDailiespreAuth0Function.AppSyncFunction"
+   }
+  },
+  "QuerylistDailiesauth0FunctionQuerylistDailiesauth0FunctionAppSyncFunctionB1655849": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistDailiesauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6b25c9b572c67e0f7ad41cb8019a90825f3db4b02a0a15b837c7a82dcb302060.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiesauth0Function/QuerylistDailiesauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerylistDailiespostAuth0FunctionQuerylistDailiespostAuth0FunctionAppSyncFunction973985DE": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistDailiespostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiespostAuth0Function/QuerylistDailiespostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryListDailiesDataResolverFnQueryListDailiesDataResolverFnAppSyncFunctionF2905E62": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryListDailiesDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9fcbe070ecd3023c5bf5b966fa9584757db9762eef123bad0820bd87591b2174.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/cc01911d0269d4080ea57505dc445dfc315ef7ad85d3d9d4ea1357858bff451d.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QueryListDailiesDataResolverFn/QueryListDailiesDataResolverFn.AppSyncFunction"
+   }
+  },
+  "ListDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "listDailies",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerylistDailiespreAuth0FunctionQuerylistDailiespreAuth0FunctionAppSyncFunctionFA6C2D4D",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerylistDailiesauth0FunctionQuerylistDailiesauth0FunctionAppSyncFunctionB1655849",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerylistDailiespostAuth0FunctionQuerylistDailiespostAuth0FunctionAppSyncFunction973985DE",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryListDailiesDataResolverFnQueryListDailiesDataResolverFnAppSyncFunctionF2905E62",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listDailies\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "DailyTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/queryListDailiesResolver"
+   }
+  },
+  "MutationcreateDailyinit0FunctionMutationcreateDailyinit0FunctionAppSyncFunction73677A56": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateDailyinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3cf32e28e3985b88b598dacbcc9a81cbb12cab62b6507082eb20a0702d3c197e.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailyinit0Function/MutationcreateDailyinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateDailypreAuth0FunctionMutationcreateDailypreAuth0FunctionAppSyncFunctionDAB8B7CF": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateDailypreAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/69da52585a2dca7a27747831695e0f83db31c260c872795c6a91bebd72781431.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailypreAuth0Function/MutationcreateDailypreAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateDailyauth0FunctionMutationcreateDailyauth0FunctionAppSyncFunctionD05CE1AA": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/44cfddebe0275a987abc67ef8893c271f65127e25fe9d572aa06efa002f8ed70.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailyauth0Function/MutationcreateDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateDailypostAuth0FunctionMutationcreateDailypostAuth0FunctionAppSyncFunction71AE02F4": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailypostAuth0Function/MutationcreateDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationCreateDailyDataResolverFnMutationCreateDailyDataResolverFnAppSyncFunction4EB92324": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationCreateDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/5f2b8b65893c617a0a0db0b267130800f242276df4bd7c7285a1e01ff7bddbb2.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationCreateDailyDataResolverFn/MutationCreateDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "CreateDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "createDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationcreateDailyinit0FunctionMutationcreateDailyinit0FunctionAppSyncFunction73677A56",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateDailypreAuth0FunctionMutationcreateDailypreAuth0FunctionAppSyncFunctionDAB8B7CF",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateDailyauth0FunctionMutationcreateDailyauth0FunctionAppSyncFunctionD05CE1AA",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateDailypostAuth0FunctionMutationcreateDailypostAuth0FunctionAppSyncFunction71AE02F4",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationCreateDailyDataResolverFnMutationCreateDailyDataResolverFnAppSyncFunction4EB92324",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "DailyTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationCreateDailyResolver"
+   }
+  },
+  "MutationupdateDailyinit0FunctionMutationupdateDailyinit0FunctionAppSyncFunctionD004AC70": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateDailyinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/06db846fd14e6fc371f22b12b5545ba8e2dbfeda85d8c8d586c71c282166657b.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailyinit0Function/MutationupdateDailyinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateDailypreAuth0FunctionMutationupdateDailypreAuth0FunctionAppSyncFunction64C5760B": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateDailypreAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/69da52585a2dca7a27747831695e0f83db31c260c872795c6a91bebd72781431.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailypreAuth0Function/MutationupdateDailypreAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateDailyauth0FunctionMutationupdateDailyauth0FunctionAppSyncFunctionF2239E9E": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/21cd7d7b29df2e590af28725cf26476c2493d929a532dac4ca1c7a90dc527d38.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailyauth0Function/MutationupdateDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateDailypostAuth0FunctionMutationupdateDailypostAuth0FunctionAppSyncFunctionA5EB62A0": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailypostAuth0Function/MutationupdateDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationUpdateDailyDataResolverFnMutationUpdateDailyDataResolverFnAppSyncFunctionB93F07B2": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationUpdateDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/474bf0776ec2164a13191d1a0a9e057154931e4918fea5086f49850d02a5371b.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationUpdateDailyDataResolverFn/MutationUpdateDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "UpdateDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "updateDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationupdateDailyinit0FunctionMutationupdateDailyinit0FunctionAppSyncFunctionD004AC70",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateDailypreAuth0FunctionMutationupdateDailypreAuth0FunctionAppSyncFunction64C5760B",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateDailyauth0FunctionMutationupdateDailyauth0FunctionAppSyncFunctionF2239E9E",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateDailypostAuth0FunctionMutationupdateDailypostAuth0FunctionAppSyncFunctionA5EB62A0",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationUpdateDailyDataResolverFnMutationUpdateDailyDataResolverFnAppSyncFunctionB93F07B2",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "DailyTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationUpdateDailyResolver"
+   }
+  },
+  "MutationdeleteDailypreAuth0FunctionMutationdeleteDailypreAuth0FunctionAppSyncFunction5D073040": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteDailypreAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2417b1d361fe1d440c6c6dc86b412702086ce1b61a88f3970deef12db5fb47b7.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailypreAuth0Function/MutationdeleteDailypreAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationdeleteDailyauth0FunctionMutationdeleteDailyauth0FunctionAppSyncFunction41463B96": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/6f719823c8dc33485671e19f54ce14f8fec6952732f1c9d262147827de74077d.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailyauth0Function/MutationdeleteDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationdeleteDailypostAuth0FunctionMutationdeleteDailypostAuth0FunctionAppSyncFunctionB22B1764": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailypostAuth0Function/MutationdeleteDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationDeleteDailyDataResolverFnMutationDeleteDailyDataResolverFnAppSyncFunction25CAAE1D": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "DailyDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationDeleteDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4f7907d1209a2c9953a0c053df402c634e359546d70c7cc5c2e8e21ea734880f.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "DailyDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationDeleteDailyDataResolverFn/MutationDeleteDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "DeleteDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "deleteDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteDailypreAuth0FunctionMutationdeleteDailypreAuth0FunctionAppSyncFunction5D073040",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteDailyauth0FunctionMutationdeleteDailyauth0FunctionAppSyncFunction41463B96",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteDailypostAuth0FunctionMutationdeleteDailypostAuth0FunctionAppSyncFunctionB22B1764",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationDeleteDailyDataResolverFnMutationDeleteDailyDataResolverFnAppSyncFunction25CAAE1D",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "DailyTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationDeleteDailyResolver"
+   }
+  },
+  "SubscriptiononCreateDailyauth0FunctionSubscriptiononCreateDailyauth0FunctionAppSyncFunctionC762B2BB": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononCreateDailyauth0Function/SubscriptiononCreateDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateDailypostAuth0FunctionSubscriptiononCreateDailypostAuth0FunctionAppSyncFunction6070D956": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononCreateDailypostAuth0Function/SubscriptiononCreateDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnCreateDailyDataResolverFnSubscriptionOnCreateDailyDataResolverFnAppSyncFunctionAF0870D0": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnCreateDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnCreateDailyDataResolverFn/SubscriptionOnCreateDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "onCreateDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateDailyauth0FunctionSubscriptiononCreateDailyauth0FunctionAppSyncFunctionC762B2BB",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateDailypostAuth0FunctionSubscriptiononCreateDailypostAuth0FunctionAppSyncFunction6070D956",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnCreateDailyDataResolverFnSubscriptionOnCreateDailyDataResolverFnAppSyncFunctionAF0870D0",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnCreateDailyResolver"
+   }
+  },
+  "SubscriptiononUpdateDailyauth0FunctionSubscriptiononUpdateDailyauth0FunctionAppSyncFunctionD1CE1DAE": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononUpdateDailyauth0Function/SubscriptiononUpdateDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateDailypostAuth0FunctionSubscriptiononUpdateDailypostAuth0FunctionAppSyncFunction5A106A4A": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononUpdateDailypostAuth0Function/SubscriptiononUpdateDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnUpdateDailyDataResolverFnSubscriptionOnUpdateDailyDataResolverFnAppSyncFunctionC151C154": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnUpdateDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnUpdateDailyDataResolverFn/SubscriptionOnUpdateDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "onUpdateDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateDailyauth0FunctionSubscriptiononUpdateDailyauth0FunctionAppSyncFunctionD1CE1DAE",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateDailypostAuth0FunctionSubscriptiononUpdateDailypostAuth0FunctionAppSyncFunction5A106A4A",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnUpdateDailyDataResolverFnSubscriptionOnUpdateDailyDataResolverFnAppSyncFunctionC151C154",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnUpdateDailyResolver"
+   }
+  },
+  "SubscriptiononDeleteDailyauth0FunctionSubscriptiononDeleteDailyauth0FunctionAppSyncFunction4B8C0569": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteDailyauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/3b6d810ef43cdbd93ef462c40b0df0328b89e04f1473a4f82f1178da1f1d5aa0.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononDeleteDailyauth0Function/SubscriptiononDeleteDailyauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteDailypostAuth0FunctionSubscriptiononDeleteDailypostAuth0FunctionAppSyncFunction68F3418A": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteDailypostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononDeleteDailypostAuth0Function/SubscriptiononDeleteDailypostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnDeleteDailyDataResolverFnSubscriptionOnDeleteDailyDataResolverFnAppSyncFunctionC86C82C3": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnDeleteDailyDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnDeleteDailyDataResolverFn/SubscriptionOnDeleteDailyDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteDailyResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "onDeleteDaily",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteDailyauth0FunctionSubscriptiononDeleteDailyauth0FunctionAppSyncFunction4B8C0569",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteDailypostAuth0FunctionSubscriptiononDeleteDailypostAuth0FunctionAppSyncFunction68F3418A",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnDeleteDailyDataResolverFnSubscriptionOnDeleteDailyDataResolverFnAppSyncFunctionC86C82C3",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteDaily\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnDeleteDailyResolver"
+   }
+  },
+  "DailyOwnerDataResolverFnDailyOwnerDataResolverFnAppSyncFunction1483AAEF": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "DailyOwnerDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/041534e5fd916595f752318f161512d7c7f83b9f2cf32d0f0be381c12253ff68.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/064303962e481067b44300212516363b99aaee539b6bafaf756fdd83ff0b60f0.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyOwnerDataResolverFn/DailyOwnerDataResolverFn.AppSyncFunction"
+   }
+  },
+  "DailyownerResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+    },
+    "FieldName": "owner",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "DailyOwnerDataResolverFnDailyOwnerDataResolverFnAppSyncFunction1483AAEF",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Daily\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"owner\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:aws:sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Daily"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/dailyOwnerResolver"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WOwW6DMAyGn6X31KPtoecVtGM3we6VSQxKAQfFTqsK8e4TdOq00+9P/mT/e9gdj5Bt8C5b67pt72uYziRKrlK0nckb/sKIAynFBfLAzqsPbEqSkKIlkyfRMPxhw68Z73KZ3INxCK6Gb6x7OqGQ8TjAVIb+aYeeZoPjKA+2MBWrXtQFKlavk//pI7FdSuSBG9+miGuj38/9jeJs5HBBEVKB9yWMHOCUbEe6FJgX9zPpmNSs60qx9dzOhoMjuMrbbZ/BLoNscxXvtzGx+oGgfOYPiT/HJjYBAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "GetAttDailyTableStreamArn": {
+   "Description": "Your DynamoDB table StreamArn.",
+   "Value": {
+    "Fn::GetAtt": [
+     "DailyTable",
+     "TableStreamArn"
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "GetAtt:DailyTable:StreamArn"
+      ]
+     ]
+    }
+   }
+  },
+  "GetAttDailyTableName": {
+   "Description": "Your DynamoDB table name.",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "Daily-",
+      {
+       "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+      },
+      "-NONE"
+     ]
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+       },
+       "GetAtt:DailyTable:Name"
+      ]
+     ]
+    }
+   }
+  }
+ }
+}
