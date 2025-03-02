@@ -1,6 +1,0 @@
-type Daily @model @auth(rules: [{allow: public, provider: iam}])
-{
-  userId: ID!
-  date: String!
-  content: String
-}

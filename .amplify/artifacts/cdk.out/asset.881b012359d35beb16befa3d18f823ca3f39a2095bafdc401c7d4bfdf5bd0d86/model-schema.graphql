@@ -1,8 +1,0 @@
-type Daily @model @auth(rules: [{allow: owner, ownerField: "owner"}])
-{
-  identityId: ID! @primaryKey(sortKeyFields: ["date"])
-  date: AWSDate!
-  content: String
-  createdDate: AWSDateTime
-  updatedDate: AWSDateTime
-}

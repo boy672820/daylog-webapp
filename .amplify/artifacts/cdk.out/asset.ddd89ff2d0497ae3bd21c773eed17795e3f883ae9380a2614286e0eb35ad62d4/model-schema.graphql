@@ -1,8 +1,0 @@
-type Daily @model @auth(rules: [{allow: public, provider: iam}])
-{
-  identityId: ID! @primaryKey(sortKeyFields: ["date"])
-  date: AWSDate!
-  content: String
-  createdDate: AWSDateTime
-  updatedDate: AWSDateTime
-}
