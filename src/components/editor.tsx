@@ -1,5 +1,6 @@
 'use client';
 
+import { generateClient } from 'aws-amplify/data';
 import { useEffect, useState, useCallback } from 'react';
 import { format } from 'date-fns';
 import { ko } from 'date-fns/locale';
@@ -7,20 +8,30 @@ import { RichTextEditor } from './tiptap/rich-text-editor';
 import { Button } from './ui/button';
 import { useDebounce } from '../hooks/use-debounce';
 import { useAuthSession } from '../hooks/use-auth-session';
+import { type Schema } from '../../amplify/data/resource';
 
-export function Editor({ date: _date }: { date: Date }) {
-  const [content, setContent] = useState<string>('');
+const client = generateClient<Schema>();
+
+export function Editor({
+  dateString: date,
+  content: initialContent,
+}: {
+  dateString: string;
+  content: string;
+}) {
+  const [content, setContent] = useState<string>(initialContent);
 
   const debouncedContent = useDebounce(content, 1000);
-  const { authSession } = useAuthSession();
+  const { currentUser } = useAuthSession();
 
-  const date = format(_date, 'yyyy-MM-dd');
-
-  const updateDaily = useCallback(async () => {}, [
-    authSession,
-    date,
-    debouncedContent,
-  ]);
+  const updateDaily = useCallback(async () => {
+    const { data } = await client.models.Daily.update({
+      userId: currentUser.userId,
+      date,
+      content: debouncedContent,
+    });
+    console.log('Update daily: ', data);
+  }, [date, currentUser, debouncedContent]);
 
   useEffect(() => {
     updateDaily();
@@ -37,7 +48,11 @@ export function Editor({ date: _date }: { date: Date }) {
         </h2>
       </section>
       <main className='flex-grow container mx-auto' id='editor'>
-        <RichTextEditor className='w-full rounded-xl' onUpdate={setContent} />
+        <RichTextEditor
+          className='w-full rounded-xl'
+          onUpdate={setContent}
+          initialContent={content}
+        />
         <div className='flex my-4 justify-end'>
           <Button variant={'ghost'} size={'lg'} disabled>
             작성하신 내용은 자동으로 저장됩니다.

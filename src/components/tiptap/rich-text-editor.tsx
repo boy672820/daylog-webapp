@@ -19,7 +19,6 @@ import { TipTapFloatingMenu } from '@/components/tiptap/extensions/floating-menu
 import { FloatingToolbar } from '@/components/tiptap/extensions/floating-toolbar';
 import { EditorToolbar } from './toolbars/editor-toolbar';
 import Placeholder from '@tiptap/extension-placeholder';
-import { content } from '@/lib/content';
 
 const extensions = [
   StarterKit.configure({
@@ -74,25 +73,23 @@ const extensions = [
 
 export function RichTextEditor({
   className,
+  initialContent,
   onUpdate,
 }: {
   className?: string;
+  initialContent?: string;
   onUpdate: (html: string) => void;
 }) {
   const editor = useEditor({
     immediatelyRender: false,
     extensions: extensions as Extension[],
-    content,
+    content: initialContent || '',
     editorProps: {
       attributes: {
         class: 'max-w-full focus:outline-none',
       },
     },
     onUpdate: ({ editor }) => {
-      // do what you want to do with output
-      // Update stats
-      // saving as text/json/hmtml
-      // const text = editor.getHTML();
       onUpdate(editor.getHTML());
     },
   });
@@ -102,7 +99,7 @@ export function RichTextEditor({
   return (
     <div
       className={cn(
-        'relative max-h-[calc(80dvh-6rem)]  w-full overflow-hidden overflow-y-scroll border bg-card pb-[60px] sm:pb-0',
+        'relative max-h-[calc(80dvh-6rem)] w-full overflow-hidden overflow-y-scroll border bg-card pb-[60px] sm:pb-0',
         className
       )}
     >
@@ -111,7 +108,7 @@ export function RichTextEditor({
       <TipTapFloatingMenu editor={editor} />
       <EditorContent
         editor={editor}
-        className=' min-h-[600px] w-full min-w-full cursor-text'
+        className='w-full min-w-full cursor-text'
       />
     </div>
   );

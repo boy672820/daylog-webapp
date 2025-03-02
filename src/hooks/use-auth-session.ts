@@ -1,29 +1,29 @@
-import { fetchAuthSession } from 'aws-amplify/auth';
+import { getCurrentUser } from 'aws-amplify/auth';
 import { useEffect, useState } from 'react';
 import { useToast } from './use-toast';
 
 interface AuthSession {
-  identityId: string;
+  userId: string;
 }
 
 export function useAuthSession() {
-  const [authSession, setAuthSession] = useState<AuthSession>({
-    identityId: '',
+  const [currentUser, setCurrentUser] = useState<AuthSession>({
+    userId: '',
   });
   const [loading, setLoading] = useState<boolean>(true);
 
   const { toast } = useToast();
 
   useEffect(() => {
-    fetchAuthSession()
-      .then((authSession) => {
-        if (!authSession?.identityId) {
+    getCurrentUser()
+      .then((currentUser) => {
+        if (!currentUser?.userId) {
           toast({ description: '로그인 후 이용해주세요.' });
           setLoading(false);
           return;
         }
 
-        setAuthSession({ identityId: authSession.identityId });
+        setCurrentUser({ userId: currentUser.userId });
         setLoading(false);
       })
       .catch((e) => {
@@ -31,7 +31,7 @@ export function useAuthSession() {
         toast({ description: '로그인 후 이용해주세요.' });
         setLoading(false);
       });
-  }, []);
+  }, [toast]);
 
-  return { authSession, loading };
+  return { currentUser, loading };
 }

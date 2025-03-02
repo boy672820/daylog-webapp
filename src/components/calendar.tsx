@@ -1,13 +1,20 @@
 'use client';
 
 import * as React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight, LockIcon, Loader2 } from 'lucide-react';
 import { DayPicker, DayProps } from 'react-day-picker';
-import { format } from 'date-fns';
+import { format, isToday, isFuture } from 'date-fns';
 import { ko } from 'date-fns/locale';
 import { cn } from '@/lib/utils';
 import { buttonVariants } from '@/components/ui/button';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
 
 export type CalendarProps = React.ComponentProps<typeof DayPicker>;
 
@@ -17,6 +24,15 @@ function Calendar({
   showOutsideDays = true,
   ...props
 }: CalendarProps) {
+  const router = useRouter();
+  const [navigatingDate, setNavigatingDate] = useState<string | null>(null);
+
+  // 날짜 클릭 핸들러
+  const handleDateClick = (dateStr: string) => {
+    setNavigatingDate(dateStr);
+    router.push(`/review?date=${dateStr}`);
+  };
+
   return (
     <DayPicker
       locale={ko}
@@ -51,7 +67,13 @@ function Calendar({
         ...classNames,
       }}
       components={{
-        Day,
+        Day: (dayProps) => (
+          <Day
+            {...dayProps}
+            navigatingDate={navigatingDate}
+            onDateClick={handleDateClick}
+          />
+        ),
         IconLeft: () => <ChevronLeft className='h-4 w-4' />,
         IconRight: () => <ChevronRight className='h-4 w-4' />,
       }}
@@ -61,32 +83,91 @@ function Calendar({
 }
 Calendar.displayName = 'Calendar';
 
-const Day = ({ date, displayMonth }: DayProps) => {
-  const isToday = new Date().toDateString() === date.toDateString();
+interface ExtendedDayProps extends DayProps {
+  navigatingDate: string | null;
+  onDateClick: (dateStr: string) => void;
+}
+
+const Day = ({
+  date,
+  displayMonth,
+  navigatingDate,
+  onDateClick,
+}: ExtendedDayProps) => {
+  const isTodayDate = isToday(date);
   const isOutsideCurrentMonth = date.getMonth() !== displayMonth.getMonth();
   const isWeekend = date.getDay() === 0 || date.getDay() === 6;
+  const isFutureDate =
+    isFuture(date) || (isToday(date) && new Date().getHours() < 18);
+  const currentHour = new Date().getHours();
+  const disableToday = isTodayDate && currentHour < 18;
+  const dateStr = format(date, 'yyyy-MM-dd');
+  const isNavigating = navigatingDate === dateStr;
 
+  // 공통 셀 스타일
+  const cellStyle = cn(
+    'border p-3.5 w-32 h-32 flex items-start font-normal text-xs',
+    isWeekend && 'bg-neutral-900',
+    isFutureDate && 'opacity-60 bg-neutral-900/50',
+    !isFutureDate && 'cursor-pointer hover:bg-neutral-700'
+  );
+
+  // 날짜 표시 스타일
+  const dateStyle = cn(
+    'rounded-full w-7 h-7 flex justify-center items-center',
+    isTodayDate && 'bg-red-500 text-white',
+    isFutureDate && !isTodayDate && 'bg-gray-700/60 text-gray-400',
+    disableToday && 'bg-orange-900/70 text-orange-200/80',
+    isOutsideCurrentMonth && 'text-neutral-500'
+  );
+
+  // 미래 날짜는 비활성화
+  if (isFutureDate) {
+    return (
+      <TooltipProvider>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <div className={cellStyle}>
+              <div className='w-full flex flex-col'>
+                <div className='flex justify-between items-center'>
+                  <span className={dateStyle}>{date.getDate()}</span>
+                  <LockIcon className='h-3.5 w-3.5 text-gray-500 mr-1' />
+                </div>
+                {disableToday && (
+                  <div className='mt-2 text-[10px] text-orange-400/80'>
+                    오늘의 회고는 오후 6시 이후에 작성할 수 있습니다
+                  </div>
+                )}
+              </div>
+            </div>
+          </TooltipTrigger>
+          <TooltipContent>
+            {disableToday
+              ? '오늘 회고는 오후 6시 이후에 작성할 수 있습니다'
+              : '오늘 이후 날짜는 회고를 작성할 수 없어요!'}
+          </TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    );
+  }
+
+  // 로딩 상태인 경우
+  if (isNavigating) {
+    return (
+      <div className={cn(cellStyle, 'relative')}>
+        <span className={dateStyle}>{date.getDate()}</span>
+        <div className='absolute inset-0 flex items-center justify-center bg-black/40'>
+          <Loader2 className='h-6 w-6 animate-spin text-primary' />
+        </div>
+      </div>
+    );
+  }
+
+  // 클릭 가능한 날짜의 경우
   return (
-    <Link
-      className={cn(
-        'border p-3.5 w-32 h-32 flex items-start text-justify font-normal aria-selected:opacity-500 text-xs hover:bg-neutral-700',
-        isWeekend && 'bg-neutral-900'
-      )}
-      href={{
-        pathname: '/review',
-        query: { date: format(date, 'yyyy-MM-dd') },
-      }}
-    >
-      <span
-        className={cn(
-          'rounded-full w-7 h-7 flex justify-center items-center',
-          isToday && 'bg-red-500 text-white',
-          isOutsideCurrentMonth && 'text-neutral-500'
-        )}
-      >
-        {date.getDate()}
-      </span>
-    </Link>
+    <div className={cellStyle} onClick={() => onDateClick(dateStr)}>
+      <span className={dateStyle}>{date.getDate()}</span>
+    </div>
   );
 };
 

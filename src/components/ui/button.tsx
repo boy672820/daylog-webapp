@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { Loader2 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -19,6 +20,7 @@ const buttonVariants = cva(
           'bg-secondary text-secondary-foreground hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
+        loading: 'bg-primary/80 text-primary-foreground cursor-wait',
       },
       size: {
         default: 'h-10 px-4 py-2',
@@ -39,28 +41,55 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   href?: string;
+  isLoading?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, href, ...props }, ref) => {
+  (
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      isLoading,
+      children,
+      href,
+      ...props
+    },
+    ref
+  ) => {
     if (href) {
       return (
         <Link
           href={href}
           className={cn(buttonVariants({ variant, size, className }))}
         >
-          {props.children}
+          {children}
         </Link>
       );
     }
 
     const Comp = asChild ? Slot : 'button';
+    const actualVariant = isLoading ? 'loading' : variant;
+
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant: actualVariant, size, className })
+        )}
         ref={ref}
+        disabled={isLoading || props.disabled}
         {...props}
-      />
+      >
+        {isLoading ? (
+          <React.Fragment>
+            <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+            {children}
+          </React.Fragment>
+        ) : (
+          children
+        )}
+      </Comp>
     );
   }
 );

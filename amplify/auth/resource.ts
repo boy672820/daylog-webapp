@@ -1,13 +1,17 @@
 import { defineAuth } from '@aws-amplify/backend';
+import { customMessage } from './custom-message/resource';
 
 /**
  * Define and configure your auth resource
  * @see https://docs.amplify.aws/gen2/build-a-backend/auth
  */
 export const auth = defineAuth({
+  triggers: {
+    customMessage,
+  },
   loginWith: {
     email: {
-      verificationEmailSubject: '데이로그(Day Log) 회원가입을 완료해주세요.',
+      verificationEmailSubject: '데이로그(Daylog) 회원가입을 완료해주세요.',
       verificationEmailBody(createCode: () => string) {
         const code = createCode();
         return `
@@ -16,7 +20,7 @@ export const auth = defineAuth({
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>데이로그(Day Log) 인증</title>
+  <title>데이로그(Daylog) 인증</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
@@ -85,7 +89,7 @@ export const auth = defineAuth({
 <body>
   <div class="email-wrapper">
     <div class="email-header">
-      <span class="email-logo">데이로그(Day Log)</span>
+      <span class="email-logo">데이로그(Daylog)</span>
     </div>
     <div class="email-body">
       <h1 class="email-title">회원가입을 완료하세요</h1>
@@ -94,7 +98,7 @@ export const auth = defineAuth({
       <p class="email-message">이 코드는 10분 동안 유효하며, 본인이 요청하지 않았다면 이 이메일을 무시하셔도 됩니다.</p>
     </div>
     <div class="email-footer">
-      <p>&copy; ${new Date().getFullYear()} 데이로그(Day Log). All rights reserved.</p>
+      <p>&copy; ${new Date().getFullYear()} 데이로그(Daylog). All rights reserved.</p>
       <p>이 메일은 회원가입 과정에서 자동으로 발송되었습니다.</p>
     </div>
   </div>
@@ -112,6 +116,11 @@ export const auth = defineAuth({
         'http://localhost:3000/logout',
         'https://mywebsite.com/logout',
       ],
+    },
+  },
+  senders: {
+    email: {
+      fromEmail: 'boy672820@gmail.com',
     },
   },
 });

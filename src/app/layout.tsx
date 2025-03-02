@@ -12,7 +12,7 @@ const notoSansKR = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: '데이로그(Day Log) | 나를 돌아보는 시간',
+  title: '데이로그(Daylog) | 나를 돌아보는 시간',
   description: '데이로그는 회고를 통한 성장을 돕는 도구입니다.',
 };
 

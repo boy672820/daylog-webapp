@@ -17,14 +17,23 @@ export const cookiesClient = generateServerClientUsingCookies<Schema>({
   cookies,
 });
 
-export async function AuthGetCurrentUserServer() {
+export async function AuthGetCurrentUserServer(): Promise<{ userId: string }> {
   try {
     const currentUser = await runWithAmplifyServerContext({
       nextServerContext: { cookies },
       operation: (contextSpec) => getCurrentUser(contextSpec),
     });
-    return currentUser;
+    if (!currentUser) {
+      throw new Error('No user');
+    }
+    if (!currentUser.userId) {
+      throw new Error('No user ID');
+    }
+    return {
+      userId: currentUser.userId,
+    };
   } catch (error) {
     console.error(error);
+    throw new Error('No user');
   }
 }

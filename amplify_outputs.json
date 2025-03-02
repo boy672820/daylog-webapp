@@ -1,9 +1,9 @@
 {
   "auth": {
-    "user_pool_id": "ap-northeast-2_S1vWYP7c6",
+    "user_pool_id": "ap-northeast-2_Eo8pqp4j4",
     "aws_region": "ap-northeast-2",
-    "user_pool_client_id": "7sep1qudq3u6uru4t53jfv8gov",
-    "identity_pool_id": "ap-northeast-2:cad840a6-700e-4e70-be28-8590de86ccd2",
+    "user_pool_client_id": "qei7sa30f3j7027jdopammrcm",
+    "identity_pool_id": "ap-northeast-2:ab56aa27-fde0-4972-b1ff-5061ec468c54",
     "mfa_methods": [],
     "standard_required_attributes": [
       "email"
@@ -41,12 +41,12 @@
         "profile",
         "aws.cognito.signin.user.admin"
       ],
-      "domain": "6d3a453db02551a00f5e.auth.ap-northeast-2.amazoncognito.com"
+      "domain": "6b0ad93ddaf0bfb3d46b.auth.ap-northeast-2.amazoncognito.com"
     },
     "unauthenticated_identities_enabled": true
   },
   "data": {
-    "url": "https://slwpb4btbvhiho2dfqwemxly6i.appsync-api.ap-northeast-2.amazonaws.com/graphql",
+    "url": "https://52db3aiztvculeufzpgcbebnum.appsync-api.ap-northeast-2.amazonaws.com/graphql",
     "aws_region": "ap-northeast-2",
     "default_authorization_type": "AMAZON_COGNITO_USER_POOLS",
     "authorization_types": [

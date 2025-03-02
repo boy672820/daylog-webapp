@@ -1,19 +1,19 @@
 {
   "version": "39.0.0",
   "artifacts": {
-    "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9.assets": {
+    "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9.assets.json",
+        "file": "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9": {
+    "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://unknown-account/unknown-region",
       "properties": {
-        "templateFile": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9.template.json",
+        "templateFile": "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5.template.json",
         "terminationProtection": false,
         "tags": {
           "amplify:deployment-type": "sandbox",
@@ -22,11 +22,11 @@
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/bbb4047cc0a5c8d11eebb7cc4b2660db6010e5c4bbdaaaa88d15a591147bf7b8.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/271265c42e28f1f2f6fe18ac7083c1fe64011fb417f994a158e375b09dcf53bb.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9.assets"
+          "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
@@ -35,10 +35,10 @@
         }
       },
       "dependencies": [
-        "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9.assets"
+        "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5.assets"
       ],
       "metadata": {
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5": [
           {
             "type": "aws:cdk:stack-tags",
             "data": [
@@ -53,253 +53,283 @@
             ]
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/deploymentType": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/deploymentType": [
           {
             "type": "aws:cdk:logicalId",
             "data": "deploymentType"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/region": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/region": [
           {
             "type": "aws:cdk:logicalId",
             "data": "region"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPool/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/UserPool/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthUserPool4BA7F805"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPool/UserPoolDomain/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/UserPool/UserPoolDomain/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthUserPoolUserPoolDomain1F688B5B"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/UserPoolAppClient/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/UserPool/CustomMessageCognito": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifyAuthUserPoolCustomMessageCognito45E0E577"
+          }
+        ],
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/UserPoolAppClient/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthUserPoolAppClient2626C6F8"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/IdentityPool": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/IdentityPool": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthIdentityPool3FDE84CC"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/authenticatedUserRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/authenticatedUserRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthauthenticatedUserRoleD8DA3689"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthunauthenticatedUserRole2B524D9E"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyAuth/IdentityPoolRoleAttachment": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifyAuth/IdentityPoolRoleAttachment": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyAuthIdentityPoolRoleAttachment045F17C8"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/CDKMetadata/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/custom-message-lambda/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "custommessagelambdaServiceRole985A9C69"
+          }
+        ],
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/custom-message-lambda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "custommessagelambda2E279E4B"
+          }
+        ],
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/CDKMetadata/Condition": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolD9861F0ARef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPool568D3BEARef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolD9861F0ARef"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPool568D3BEARef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolAppClientEFE62D7DRef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPoolAppClientCB867B5CRef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolAppClientEFE62D7DRef"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPoolAppClientCB867B5CRef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolUserPoolDomain02644519Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPoolUserPoolDomain81238326Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolUserPoolDomain02644519Ref"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPoolUserPoolDomain81238326Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authcustommessagelambdaA44D8E85Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authcustommessagelambdaA44D8E85Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth/amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/auth.NestedStack/auth.NestedStackResource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth/amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref"
+          }
+        ],
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/auth.NestedStack/auth.NestedStackResource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "auth179371D7"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/userPoolId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/userPoolId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "userPoolId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/webClientId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/webClientId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "webClientId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/identityPoolId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/identityPoolId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "identityPoolId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/authRegion": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/authRegion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "authRegion"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/allowUnauthenticatedIdentities": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/allowUnauthenticatedIdentities": [
           {
             "type": "aws:cdk:logicalId",
             "data": "allowUnauthenticatedIdentities"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/signupAttributes": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/signupAttributes": [
           {
             "type": "aws:cdk:logicalId",
             "data": "signupAttributes"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/usernameAttributes": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/usernameAttributes": [
           {
             "type": "aws:cdk:logicalId",
             "data": "usernameAttributes"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/verificationMechanisms": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/verificationMechanisms": [
           {
             "type": "aws:cdk:logicalId",
             "data": "verificationMechanisms"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/passwordPolicyMinLength": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/passwordPolicyMinLength": [
           {
             "type": "aws:cdk:logicalId",
             "data": "passwordPolicyMinLength"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/passwordPolicyRequirements": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/passwordPolicyRequirements": [
           {
             "type": "aws:cdk:logicalId",
             "data": "passwordPolicyRequirements"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/mfaConfiguration": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/mfaConfiguration": [
           {
             "type": "aws:cdk:logicalId",
             "data": "mfaConfiguration"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/mfaTypes": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/mfaTypes": [
           {
             "type": "aws:cdk:logicalId",
             "data": "mfaTypes"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/socialProviders": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/socialProviders": [
           {
             "type": "aws:cdk:logicalId",
             "data": "socialProviders"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthCognitoDomain": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthCognitoDomain": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthCognitoDomain"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthScope": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthScope": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthScope"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthRedirectSignIn": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthRedirectSignIn": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthRedirectSignIn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthRedirectSignOut": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthRedirectSignOut": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthRedirectSignOut"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthResponseType": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthResponseType": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthResponseType"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/oauthClientId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/oauthClientId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "oauthClientId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/groups": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/groups": [
           {
             "type": "aws:cdk:logicalId",
             "data": "groups"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/GraphQLAPI/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/definedFunctions": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "definedFunctions"
+          }
+        ],
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/GraphQLAPI/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataGraphQLAPI42A6FA33"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/GraphQLAPI/TransformerSchema": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/GraphQLAPI/TransformerSchema": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataGraphQLAPITransformerSchemaFF50A789"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/GraphQLAPI/NONE_DS": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/GraphQLAPI/NONE_DS": [
           {
             "type": "graphqltransformer:resourceName",
             "data": "NONE_DS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/GraphQLAPI/NONE_DS/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/GraphQLAPI/NONE_DS/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataGraphQLAPINONEDS684BF699"
@@ -309,145 +339,145 @@
             "data": "NONE_DS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyManagedTableIsCompleteRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyManagedTableIsCompleteRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyManagedTableIsCompleteRoleF825222C"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyManagedTableOnEventRoleB4E71DEA"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/DefaultPolicy/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-onEvent/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-onEvent/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "TableManagerCustomProviderframeworkonEvent1DFC2ECC"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-isComplete/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-isComplete/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "TableManagerCustomProviderframeworkisComplete2E51021B"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyTableWaiterStateMachineRole470BE899"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/DefaultPolicy/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AmplifyTableWaiterStateMachine060600BC"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/CDKMetadata/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/CDKMetadata/Condition": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager/amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEvent001106BEArn": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager/amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventDEAA7A19Arn": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEvent001106BEArn"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventDEAA7A19Arn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyTableManager.NestedStack/AmplifyTableManager.NestedStackResource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyTableManager.NestedStack/AmplifyTableManager.NestedStackResource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DynamoDBModelTableReadIOPS": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DynamoDBModelTableReadIOPS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBModelTableReadIOPS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DynamoDBModelTableWriteIOPS": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DynamoDBModelTableWriteIOPS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBModelTableWriteIOPS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DynamoDBBillingMode": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DynamoDBBillingMode": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBBillingMode"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DynamoDBEnablePointInTimeRecovery": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DynamoDBEnablePointInTimeRecovery": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBEnablePointInTimeRecovery"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DynamoDBEnableServerSideEncryption": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DynamoDBEnableServerSideEncryption": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBEnableServerSideEncryption"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/HasEnvironmentParameter": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/HasEnvironmentParameter": [
           {
             "type": "aws:cdk:logicalId",
             "data": "HasEnvironmentParameter"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/ShouldUseServerSideEncryption": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/ShouldUseServerSideEncryption": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ShouldUseServerSideEncryption"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/ShouldUsePayPerRequestBilling": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/ShouldUsePayPerRequestBilling": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ShouldUsePayPerRequestBilling"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/ShouldUsePointInTimeRecovery": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/ShouldUsePointInTimeRecovery": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ShouldUsePointInTimeRecovery"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyTable": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyTable": [
           {
             "type": "graphqltransformer:resourceName",
             "data": "Daily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyTable/Default/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyTable/Default/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DailyTable"
@@ -457,31 +487,31 @@
             "data": "Daily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/CustomTableDailyTable": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/CustomTableDailyTable": [
           {
             "type": "graphqltransformer:resourceName",
             "data": "Daily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/GetAttDailyTableStreamArn": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/GetAttDailyTableStreamArn": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GetAttDailyTableStreamArn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/GetAttDailyTableName": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/GetAttDailyTableName": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GetAttDailyTableName"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyIAMRole": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyIAMRole": [
           {
             "type": "graphqltransformer:resourceName",
             "data": "DailyIAMRole"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyIAMRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyIAMRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DailyIAMRole982357AF"
@@ -491,13 +521,13 @@
             "data": "DailyIAMRole"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyDataSource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyDataSource": [
           {
             "type": "graphqltransformer:resourceName",
             "data": "DailyTable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyDataSource/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyDataSource/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DailyDataSource"
@@ -507,7 +537,7 @@
             "data": "DailyTable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailypreAuth0Function/QuerygetDailypreAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerygetDailypreAuth0Function/QuerygetDailypreAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerygetDailypreAuth0FunctionQuerygetDailypreAuth0FunctionAppSyncFunction3A679273"
@@ -517,7 +547,7 @@
             "data": "QuerygetDailypreAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailyauth0Function/QuerygetDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerygetDailyauth0Function/QuerygetDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerygetDailyauth0FunctionQuerygetDailyauth0FunctionAppSyncFunction08A6A0DE"
@@ -527,7 +557,7 @@
             "data": "QuerygetDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerygetDailypostAuth0Function/QuerygetDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerygetDailypostAuth0Function/QuerygetDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerygetDailypostAuth0FunctionQuerygetDailypostAuth0FunctionAppSyncFunction265E2B8A"
@@ -537,7 +567,7 @@
             "data": "QuerygetDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QueryGetDailyDataResolverFn/QueryGetDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QueryGetDailyDataResolverFn/QueryGetDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QueryGetDailyDataResolverFnQueryGetDailyDataResolverFnAppSyncFunctionBAC7E21D"
@@ -547,7 +577,7 @@
             "data": "QueryGetDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/queryGetDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/queryGetDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "GetDailyResolver"
@@ -557,7 +587,7 @@
             "data": "Query.getDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiespreAuth0Function/QuerylistDailiespreAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerylistDailiespreAuth0Function/QuerylistDailiespreAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerylistDailiespreAuth0FunctionQuerylistDailiespreAuth0FunctionAppSyncFunctionFA6C2D4D"
@@ -567,7 +597,7 @@
             "data": "QuerylistDailiespreAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiesauth0Function/QuerylistDailiesauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerylistDailiesauth0Function/QuerylistDailiesauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerylistDailiesauth0FunctionQuerylistDailiesauth0FunctionAppSyncFunctionB1655849"
@@ -577,7 +607,7 @@
             "data": "QuerylistDailiesauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QuerylistDailiespostAuth0Function/QuerylistDailiespostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QuerylistDailiespostAuth0Function/QuerylistDailiespostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QuerylistDailiespostAuth0FunctionQuerylistDailiespostAuth0FunctionAppSyncFunction973985DE"
@@ -587,7 +617,7 @@
             "data": "QuerylistDailiespostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/QueryListDailiesDataResolverFn/QueryListDailiesDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/QueryListDailiesDataResolverFn/QueryListDailiesDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "QueryListDailiesDataResolverFnQueryListDailiesDataResolverFnAppSyncFunctionF2905E62"
@@ -597,7 +627,7 @@
             "data": "QueryListDailiesDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/queryListDailiesResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/queryListDailiesResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "ListDailyResolver"
@@ -607,7 +637,7 @@
             "data": "Query.listDailies"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailyinit0Function/MutationcreateDailyinit0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationcreateDailyinit0Function/MutationcreateDailyinit0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationcreateDailyinit0FunctionMutationcreateDailyinit0FunctionAppSyncFunction73677A56"
@@ -617,7 +647,7 @@
             "data": "MutationcreateDailyinit0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailypreAuth0Function/MutationcreateDailypreAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationcreateDailypreAuth0Function/MutationcreateDailypreAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationcreateDailypreAuth0FunctionMutationcreateDailypreAuth0FunctionAppSyncFunctionDAB8B7CF"
@@ -627,7 +657,7 @@
             "data": "MutationcreateDailypreAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailyauth0Function/MutationcreateDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationcreateDailyauth0Function/MutationcreateDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationcreateDailyauth0FunctionMutationcreateDailyauth0FunctionAppSyncFunctionD05CE1AA"
@@ -637,7 +667,7 @@
             "data": "MutationcreateDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationcreateDailypostAuth0Function/MutationcreateDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationcreateDailypostAuth0Function/MutationcreateDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationcreateDailypostAuth0FunctionMutationcreateDailypostAuth0FunctionAppSyncFunction71AE02F4"
@@ -647,7 +677,7 @@
             "data": "MutationcreateDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationCreateDailyDataResolverFn/MutationCreateDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationCreateDailyDataResolverFn/MutationCreateDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationCreateDailyDataResolverFnMutationCreateDailyDataResolverFnAppSyncFunction4EB92324"
@@ -657,7 +687,7 @@
             "data": "MutationCreateDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationCreateDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/mutationCreateDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CreateDailyResolver"
@@ -667,7 +697,7 @@
             "data": "Mutation.createDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailyinit0Function/MutationupdateDailyinit0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationupdateDailyinit0Function/MutationupdateDailyinit0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationupdateDailyinit0FunctionMutationupdateDailyinit0FunctionAppSyncFunctionD004AC70"
@@ -677,7 +707,7 @@
             "data": "MutationupdateDailyinit0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailypreAuth0Function/MutationupdateDailypreAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationupdateDailypreAuth0Function/MutationupdateDailypreAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationupdateDailypreAuth0FunctionMutationupdateDailypreAuth0FunctionAppSyncFunction64C5760B"
@@ -687,7 +717,7 @@
             "data": "MutationupdateDailypreAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailyauth0Function/MutationupdateDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationupdateDailyauth0Function/MutationupdateDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationupdateDailyauth0FunctionMutationupdateDailyauth0FunctionAppSyncFunctionF2239E9E"
@@ -697,7 +727,7 @@
             "data": "MutationupdateDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationupdateDailypostAuth0Function/MutationupdateDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationupdateDailypostAuth0Function/MutationupdateDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationupdateDailypostAuth0FunctionMutationupdateDailypostAuth0FunctionAppSyncFunctionA5EB62A0"
@@ -707,7 +737,7 @@
             "data": "MutationupdateDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationUpdateDailyDataResolverFn/MutationUpdateDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationUpdateDailyDataResolverFn/MutationUpdateDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationUpdateDailyDataResolverFnMutationUpdateDailyDataResolverFnAppSyncFunctionB93F07B2"
@@ -717,7 +747,7 @@
             "data": "MutationUpdateDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationUpdateDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/mutationUpdateDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "UpdateDailyResolver"
@@ -727,7 +757,7 @@
             "data": "Mutation.updateDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailypreAuth0Function/MutationdeleteDailypreAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationdeleteDailypreAuth0Function/MutationdeleteDailypreAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationdeleteDailypreAuth0FunctionMutationdeleteDailypreAuth0FunctionAppSyncFunction5D073040"
@@ -737,7 +767,7 @@
             "data": "MutationdeleteDailypreAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailyauth0Function/MutationdeleteDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationdeleteDailyauth0Function/MutationdeleteDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationdeleteDailyauth0FunctionMutationdeleteDailyauth0FunctionAppSyncFunction41463B96"
@@ -747,7 +777,7 @@
             "data": "MutationdeleteDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationdeleteDailypostAuth0Function/MutationdeleteDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationdeleteDailypostAuth0Function/MutationdeleteDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationdeleteDailypostAuth0FunctionMutationdeleteDailypostAuth0FunctionAppSyncFunctionB22B1764"
@@ -757,7 +787,7 @@
             "data": "MutationdeleteDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/MutationDeleteDailyDataResolverFn/MutationDeleteDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/MutationDeleteDailyDataResolverFn/MutationDeleteDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MutationDeleteDailyDataResolverFnMutationDeleteDailyDataResolverFnAppSyncFunction25CAAE1D"
@@ -767,7 +797,7 @@
             "data": "MutationDeleteDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/mutationDeleteDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/mutationDeleteDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DeleteDailyResolver"
@@ -777,7 +807,7 @@
             "data": "Mutation.deleteDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononCreateDailyauth0Function/SubscriptiononCreateDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononCreateDailyauth0Function/SubscriptiononCreateDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononCreateDailyauth0FunctionSubscriptiononCreateDailyauth0FunctionAppSyncFunctionC762B2BB"
@@ -787,7 +817,7 @@
             "data": "SubscriptiononCreateDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononCreateDailypostAuth0Function/SubscriptiononCreateDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononCreateDailypostAuth0Function/SubscriptiononCreateDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononCreateDailypostAuth0FunctionSubscriptiononCreateDailypostAuth0FunctionAppSyncFunction6070D956"
@@ -797,7 +827,7 @@
             "data": "SubscriptiononCreateDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnCreateDailyDataResolverFn/SubscriptionOnCreateDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptionOnCreateDailyDataResolverFn/SubscriptionOnCreateDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptionOnCreateDailyDataResolverFnSubscriptionOnCreateDailyDataResolverFnAppSyncFunctionAF0870D0"
@@ -807,7 +837,7 @@
             "data": "SubscriptionOnCreateDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnCreateDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/subscriptionOnCreateDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononCreateDailyResolver"
@@ -817,7 +847,7 @@
             "data": "Subscription.onCreateDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononUpdateDailyauth0Function/SubscriptiononUpdateDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononUpdateDailyauth0Function/SubscriptiononUpdateDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononUpdateDailyauth0FunctionSubscriptiononUpdateDailyauth0FunctionAppSyncFunctionD1CE1DAE"
@@ -827,7 +857,7 @@
             "data": "SubscriptiononUpdateDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononUpdateDailypostAuth0Function/SubscriptiononUpdateDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononUpdateDailypostAuth0Function/SubscriptiononUpdateDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononUpdateDailypostAuth0FunctionSubscriptiononUpdateDailypostAuth0FunctionAppSyncFunction5A106A4A"
@@ -837,7 +867,7 @@
             "data": "SubscriptiononUpdateDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnUpdateDailyDataResolverFn/SubscriptionOnUpdateDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptionOnUpdateDailyDataResolverFn/SubscriptionOnUpdateDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptionOnUpdateDailyDataResolverFnSubscriptionOnUpdateDailyDataResolverFnAppSyncFunctionC151C154"
@@ -847,7 +877,7 @@
             "data": "SubscriptionOnUpdateDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnUpdateDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/subscriptionOnUpdateDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononUpdateDailyResolver"
@@ -857,7 +887,7 @@
             "data": "Subscription.onUpdateDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononDeleteDailyauth0Function/SubscriptiononDeleteDailyauth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononDeleteDailyauth0Function/SubscriptiononDeleteDailyauth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononDeleteDailyauth0FunctionSubscriptiononDeleteDailyauth0FunctionAppSyncFunction4B8C0569"
@@ -867,7 +897,7 @@
             "data": "SubscriptiononDeleteDailyauth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptiononDeleteDailypostAuth0Function/SubscriptiononDeleteDailypostAuth0Function.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptiononDeleteDailypostAuth0Function/SubscriptiononDeleteDailypostAuth0Function.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononDeleteDailypostAuth0FunctionSubscriptiononDeleteDailypostAuth0FunctionAppSyncFunction68F3418A"
@@ -877,7 +907,7 @@
             "data": "SubscriptiononDeleteDailypostAuth0Function"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/SubscriptionOnDeleteDailyDataResolverFn/SubscriptionOnDeleteDailyDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/SubscriptionOnDeleteDailyDataResolverFn/SubscriptionOnDeleteDailyDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptionOnDeleteDailyDataResolverFnSubscriptionOnDeleteDailyDataResolverFnAppSyncFunctionC86C82C3"
@@ -887,7 +917,7 @@
             "data": "SubscriptionOnDeleteDailyDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/subscriptionOnDeleteDailyResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/subscriptionOnDeleteDailyResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SubscriptiononDeleteDailyResolver"
@@ -897,7 +927,7 @@
             "data": "Subscription.onDeleteDaily"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/DailyOwnerDataResolverFn/DailyOwnerDataResolverFn.AppSyncFunction": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/DailyOwnerDataResolverFn/DailyOwnerDataResolverFn.AppSyncFunction": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DailyOwnerDataResolverFnDailyOwnerDataResolverFnAppSyncFunction1483AAEF"
@@ -907,7 +937,7 @@
             "data": "DailyOwnerDataResolverFn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/dailyOwnerResolver": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/dailyOwnerResolver": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DailyownerResolver"
@@ -917,145 +947,145 @@
             "data": "Daily.owner"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/CDKMetadata/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/CDKMetadata/Condition": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource0079CE5COutputs.amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEvent001106BEArn": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource14553A89Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventDEAA7A19Arn": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource0079CE5COutputsamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyTableManagerTab4D2931D4"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource14553A89Outputsamplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyTableManagerTableManageF6DE0ED8"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPINONEDSB645F3B9Name": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPINONEDS8A253F82Name"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPINONEDSB645F3B9Name"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/Daily.NestedStack/Daily.NestedStackResource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/Daily.NestedStack/Daily.NestedStackResource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataDailyNestedStackDailyNestedStackResource7B609BD0"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Policy/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketPolicyF1C1C548"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/AutoDeleteObjectsCustomResource/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/AutoDeleteObjectsCustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketAutoDeleteObjectsCustomResource437F26F5"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/AwsCliLayer/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/AwsCliLayer/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentAwsCliLayerE322F905"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/CustomResource-1536MiB/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/CustomResource-1536MiB/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB21775929"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/DynamoDBModelTableReadIOPS": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/DynamoDBModelTableReadIOPS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBModelTableReadIOPS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/DynamoDBModelTableWriteIOPS": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/DynamoDBModelTableWriteIOPS": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBModelTableWriteIOPS"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/DynamoDBBillingMode": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/DynamoDBBillingMode": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBBillingMode"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/DynamoDBEnablePointInTimeRecovery": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/DynamoDBEnablePointInTimeRecovery": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBEnablePointInTimeRecovery"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/DynamoDBEnableServerSideEncryption": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/DynamoDBEnableServerSideEncryption": [
           {
             "type": "aws:cdk:logicalId",
             "data": "DynamoDBEnableServerSideEncryption"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/LatestNodeRuntimeMap": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/LatestNodeRuntimeMap": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LatestNodeRuntimeMap"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
           {
             "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
             "data": true
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB": [
           {
             "type": "aws:cdk:is-custom-resource-handler-singleton",
             "data": true
@@ -1073,200 +1103,200 @@
             "data": 2
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/DefaultPolicy/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/modelIntrospectionSchemaBucket/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/modelIntrospectionSchemaBucket/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "modelIntrospectionSchemaBucketF566B665"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/modelIntrospectionSchemaBucket/Policy/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/modelIntrospectionSchemaBucket/Policy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "modelIntrospectionSchemaBucketPolicy4DAB0D15"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/modelIntrospectionSchemaBucket/AutoDeleteObjectsCustomResource/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/modelIntrospectionSchemaBucket/AutoDeleteObjectsCustomResource/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "modelIntrospectionSchemaBucketAutoDeleteObjectsCustomResourceFE57309F"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/modelIntrospectionSchemaBucketDeployment/AwsCliLayer/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/modelIntrospectionSchemaBucketDeployment/AwsCliLayer/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "modelIntrospectionSchemaBucketDeploymentAwsCliLayer13C432F7"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/modelIntrospectionSchemaBucketDeployment/CustomResource-1536MiB/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/modelIntrospectionSchemaBucketDeployment/CustomResource-1536MiB/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "modelIntrospectionSchemaBucketDeploymentCustomResource1536MiB104B97EC"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/AMPLIFY_DATA_GRAPHQL_ENDPOINTParameter/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/AMPLIFY_DATA_GRAPHQL_ENDPOINTParameter/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AMPLIFYDATAGRAPHQLENDPOINTParameter1C2CBB16"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAMEParameter/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAMEParameter/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMABUCKETNAMEParameter47BF4F44"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEYParameter/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEYParameter/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMAKEYParameterB6AEAE8A"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/AMPLIFY_DATA_DEFAULT_NAMEParameter/Resource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/AMPLIFY_DATA_DEFAULT_NAMEParameter/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AMPLIFYDATADEFAULTNAMEParameterE7C23CC4"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/CDKMetadata/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/CDKMetadata/Condition": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolD9861F0ARef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPool568D3BEARef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthUserPoolD9861F0ARef"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthUserPool568D3BEARef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthauthenticatedUserRoleBC4C3E6ERef"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthauthenticatedUserRoleA2D9FE87Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthunauthenticatedUserRole69ACFA65Ref"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthunauthenticatedUserRoleC4297800Ref"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/reference-to-amplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputs.amplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/reference-to-amplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputs.amplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "referencetoamplifyreviewnotewebappseondevsandbox70e6a79df9authNestedStackauthNestedStackResourceA5BE6ED9Outputsamplifyreviewnotewebappseondevsandbox70e6a79df9authamplifyAuthIdentityPoolD7FBB639Ref"
+            "data": "referencetoamplifydaylogwebappseondevsandboxfb3fe623a5authNestedStackauthNestedStackResource263470D8Outputsamplifydaylogwebappseondevsandboxfb3fe623a5authamplifyAuthIdentityPool1EA4DEEFRef"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49ApiId"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119ApiId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49GraphQLUrl": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119GraphQLUrl": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataGraphQLAPI5F9CAD49GraphQLUrl"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataGraphQLAPIAB2F1119GraphQLUrl"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data/amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBA599673ADestinationBucketArn": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data/amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBB6BB8025DestinationBucketArn": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "amplifyreviewnotewebappseondevsandbox70e6a79df9dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBA599673ADestinationBucketArn"
+            "data": "amplifydaylogwebappseondevsandboxfb3fe623a5dataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBB6BB8025DestinationBucketArn"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/data.NestedStack/data.NestedStackResource": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/data.NestedStack/data.NestedStackResource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "data7552DF31"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/awsAppsyncApiId": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/awsAppsyncApiId": [
           {
             "type": "aws:cdk:logicalId",
             "data": "awsAppsyncApiId"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/awsAppsyncApiEndpoint": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/awsAppsyncApiEndpoint": [
           {
             "type": "aws:cdk:logicalId",
             "data": "awsAppsyncApiEndpoint"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/awsAppsyncAuthenticationType": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/awsAppsyncAuthenticationType": [
           {
             "type": "aws:cdk:logicalId",
             "data": "awsAppsyncAuthenticationType"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/awsAppsyncRegion": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/awsAppsyncRegion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "awsAppsyncRegion"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/amplifyApiModelSchemaS3Uri": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/amplifyApiModelSchemaS3Uri": [
           {
             "type": "aws:cdk:logicalId",
             "data": "amplifyApiModelSchemaS3Uri"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/awsAppsyncAdditionalAuthenticationTypes": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/awsAppsyncAdditionalAuthenticationTypes": [
           {
             "type": "aws:cdk:logicalId",
             "data": "awsAppsyncAdditionalAuthenticationTypes"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/CDKMetadata/Default": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/CDKMetadata/Condition": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/CDKMetadata/Condition": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadataAvailable"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/BootstrapVersion": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9/CheckBootstrapVersion": [
+        "/amplify-daylogwebapp-seondev-sandbox-fb3fe623a5/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "amplify-reviewnotewebapp-seondev-sandbox-70e6a79df9"
+      "displayName": "amplify-daylogwebapp-seondev-sandbox-fb3fe623a5"
     },
     "Tree": {
       "type": "cdk:tree",

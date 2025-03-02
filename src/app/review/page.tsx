@@ -1,31 +1,45 @@
-import { isValid, parseISO } from 'date-fns';
+import { format, isValid, parseISO } from 'date-fns';
 import { Editor } from '../../components/editor';
 import { Footer } from '../../components/footer';
 import {
   AuthGetCurrentUserServer,
   cookiesClient,
 } from '../../utils/amplify-utils';
+import { content as initialContent } from '../../lib/content';
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { date: string };
+  searchParams: Promise<{ date: string }>;
 }) {
-  const { date: dateString } = searchParams;
-  const date = parseISO(dateString);
+  const { date: dateParam } = await searchParams;
+  const date = parseISO(dateParam);
+  const dateString = format(date, 'yyyy-MM-dd');
 
   if (isNotValid(date)) {
     return <div style={{ color: 'red' }}>Error: Invalid date format</div>;
   }
 
-  const user = await AuthGetCurrentUserServer();
+  const { userId } = await AuthGetCurrentUserServer();
 
-  const { data: dailies } = await cookiesClient.models.Daily.list();
-  console.log(dailies);
+  const { data } = await cookiesClient.models.Daily.get({
+    userId,
+    date: dateString,
+  });
+
+  if (!data) {
+    await cookiesClient.models.Daily.create({
+      userId,
+      date: dateString,
+    });
+  }
 
   return (
     <>
-      <Editor date={date} />
+      <Editor
+        dateString={dateString}
+        content={data?.content || initialContent}
+      />
       <br />
       <br />
       <Footer />
