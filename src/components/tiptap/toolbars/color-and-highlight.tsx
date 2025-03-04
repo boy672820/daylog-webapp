@@ -18,29 +18,29 @@ import { MobileToolbarGroup, MobileToolbarItem } from "./mobile-toolbar-group"
 type TextStylingExtensions = Extension<ColorOptions, any> | Extension<HighlightOptions, any>
 
 const TEXT_COLORS = [
-  { name: "Default", color: "var(--editor-text-default)" },
-  { name: "Gray", color: "var(--editor-text-gray)" },
-  { name: "Brown", color: "var(--editor-text-brown)" },
-  { name: "Orange", color: "var(--editor-text-orange)" },
-  { name: "Yellow", color: "var(--editor-text-yellow)" },
-  { name: "Green", color: "var(--editor-text-green)" },
-  { name: "Blue", color: "var(--editor-text-blue)" },
-  { name: "Purple", color: "var(--editor-text-purple)" },
-  { name: "Pink", color: "var(--editor-text-pink)" },
-  { name: "Red", color: "var(--editor-text-red)" },
+  { name: "기본", color: "var(--editor-text-default)" },
+  { name: "회색", color: "var(--editor-text-gray)" },
+  { name: "갈색", color: "var(--editor-text-brown)" },
+  { name: "주황색", color: "var(--editor-text-orange)" },
+  { name: "노란색", color: "var(--editor-text-yellow)" },
+  { name: "초록색", color: "var(--editor-text-green)" },
+  { name: "파란색", color: "var(--editor-text-blue)" },
+  { name: "보라색", color: "var(--editor-text-purple)" },
+  { name: "분홍색", color: "var(--editor-text-pink)" },
+  { name: "빨간색", color: "var(--editor-text-red)" },
 ]
 
 const HIGHLIGHT_COLORS = [
-  { name: "Default", color: "var(--editor-highlight-default)" },
-  { name: "Gray", color: "var(--editor-highlight-gray)" },
-  { name: "Brown", color: "var(--editor-highlight-brown)" },
-  { name: "Orange", color: "var(--editor-highlight-orange)" },
-  { name: "Yellow", color: "var(--editor-highlight-yellow)" },
-  { name: "Green", color: "var(--editor-highlight-green)" },
-  { name: "Blue", color: "var(--editor-highlight-blue)" },
-  { name: "Purple", color: "var(--editor-highlight-purple)" },
-  { name: "Pink", color: "var(--editor-highlight-pink)" },
-  { name: "Red", color: "var(--editor-highlight-red)" },
+  { name: "기본", color: "var(--editor-highlight-default)" },
+  { name: "회색", color: "var(--editor-highlight-gray)" },
+  { name: "갈색", color: "var(--editor-highlight-brown)" },
+  { name: "주황색", color: "var(--editor-highlight-orange)" },
+  { name: "노란색", color: "var(--editor-highlight-yellow)" },
+  { name: "초록색", color: "var(--editor-highlight-green)" },
+  { name: "파란색", color: "var(--editor-highlight-blue)" },
+  { name: "보라색", color: "var(--editor-highlight-purple)" },
+  { name: "분홍색", color: "var(--editor-highlight-pink)" },
+  { name: "빨간색", color: "var(--editor-highlight-red)" },
 ]
 
 interface ColorHighlightButtonProps {
@@ -146,12 +146,12 @@ export const ColorHighlightToolbar = () => {
               </Button>
             </PopoverTrigger>
           </TooltipTrigger>
-          <TooltipContent>Text Color & Highlight</TooltipContent>
+            <TooltipContent>텍스트 색상</TooltipContent>
         </Tooltip>
 
         <PopoverContent align="start" className="w-56 p-1 dark:bg-gray-2">
           <ScrollArea className="max-h-80 overflow-y-auto pr-2">
-            <div className="mb-2.5 mt-2 px-2 text-xs text-gray-11">Color</div>
+            <div className="mb-2.5 mt-2 px-2 text-xs text-gray-11">색상</div>
             {TEXT_COLORS.map(({ name, color }) => (
               <ColorHighlightButton
                 key={name}

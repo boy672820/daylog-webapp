@@ -31,7 +31,7 @@ const RedoToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Redo</span>
+            <span>되돌리기</span>
         </TooltipContent>
       </Tooltip>
     )

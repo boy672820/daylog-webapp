@@ -30,7 +30,7 @@ const OrderedListToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Ordered list</span>
+            <span>번호 목록</span>
         </TooltipContent>
       </Tooltip>
     )

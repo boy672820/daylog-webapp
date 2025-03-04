@@ -30,7 +30,7 @@ const ItalicToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Italic</span>
+            <span>기울임꼴로 표시</span>
           <span className="ml-1 text-xs text-gray-11">(cmd + i)</span>
         </TooltipContent>
       </Tooltip>

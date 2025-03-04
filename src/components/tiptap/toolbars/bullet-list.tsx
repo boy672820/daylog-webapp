@@ -31,7 +31,7 @@ const BulletListToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Bullet list</span>
+            <span>글머리 기호 목록</span>
         </TooltipContent>
       </Tooltip>
     )

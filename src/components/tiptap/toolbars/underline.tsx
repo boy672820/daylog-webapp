@@ -30,7 +30,7 @@ const UnderlineToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Underline</span>
+            <span>밑줄</span>
           <span className="ml-1 text-xs text-gray-11">(cmd + u)</span>
         </TooltipContent>
       </Tooltip>

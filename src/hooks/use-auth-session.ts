@@ -4,11 +4,13 @@ import { useToast } from './use-toast';
 
 interface AuthSession {
   userId: string;
+  isInitialized: boolean;
 }
 
 export function useAuthSession() {
   const [currentUser, setCurrentUser] = useState<AuthSession>({
     userId: '',
+    isInitialized: false,
   });
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -23,7 +25,7 @@ export function useAuthSession() {
           return;
         }
 
-        setCurrentUser({ userId: currentUser.userId });
+        setCurrentUser({ userId: currentUser.userId, isInitialized: true });
         setLoading(false);
       })
       .catch((e) => {

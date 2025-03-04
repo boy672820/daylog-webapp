@@ -66,12 +66,12 @@ export function SearchAndReplaceToolbar() {
               className={cn("h-8 w-max px-3 font-normal")}
             >
               <Repeat className="mr-2 h-4 w-4" />
-              <p>Search & Replace</p>
+                <p>찾기 & 바꾸기</p>
             </Button>
           </PopoverTrigger>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Search & Replace</span>
+          <span>찾기 & 바꾸기</span>
         </TooltipContent>
       </Tooltip>
 
@@ -93,7 +93,7 @@ export function SearchAndReplaceToolbar() {
               onChange={(e) => {
                 setSearchText(e.target.value)
               }}
-              placeholder="Search..."
+              placeholder="키워드 찾기"
             />
             <span>
               {results?.length === 0 ? selectedResult : selectedResult + 1}/{results?.length}
@@ -145,30 +145,30 @@ export function SearchAndReplaceToolbar() {
               >
                 <ArrowLeftIcon className="h-4 w-4" />
               </Button>
-              <h2 className="text-sm font-medium">Search and replace</h2>
+                <h2 className="text-sm font-medium">찾기 및 바꾸기</h2>
             </div>
 
             <div className="my-2 w-full">
               <div className="mb-3">
-                <Label className="mb-1 text-xs text-gray-11">Search</Label>
+                <Label className="mb-1 text-xs text-gray-11">키워드</Label>
                 <Input
                   value={searchText}
                   onChange={(e) => {
                     setSearchText(e.target.value)
                   }}
-                  placeholder="Search..."
+                  placeholder="검색어"
                 />
                 {results?.length === 0 ? selectedResult : selectedResult + 1}/{results?.length}
               </div>
               <div className="mb-2">
-                <Label className="mb-1 text-xs text-gray-11">Replace with</Label>
+                <Label className="mb-1 text-xs text-gray-11">바꿀 내용</Label>
                 <Input
                   className="w-full"
                   value={replaceText}
                   onChange={(e) => {
                     setReplaceText(e.target.value)
                   }}
-                  placeholder="Replace..."
+                  placeholder="바꾸기"
                 />
               </div>
               <div className="mt-3 flex items-center space-x-2">
@@ -183,7 +183,7 @@ export function SearchAndReplaceToolbar() {
                   htmlFor="match_case"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Match case
+                  대소문자 구분
                 </Label>
               </div>
             </div>
@@ -200,10 +200,10 @@ export function SearchAndReplaceToolbar() {
 
               <div className="main-actions flex items-center gap-2">
                 <Button size="sm" className="h-7 px-3 text-xs" variant="secondary" onClick={replaceAll}>
-                  Replace All
+                  전체 바꾸기
                 </Button>
                 <Button onClick={replace} size="sm" className="h-7 px-3 text-xs">
-                  Replace
+                  바꾸기
                 </Button>
               </div>
             </div>

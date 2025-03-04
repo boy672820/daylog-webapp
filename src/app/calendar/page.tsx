@@ -1,4 +1,3 @@
-// import Image from 'next/image';
 import { Footer } from '../../components/footer';
 import { Calendar } from '../../components/calendar';
 import { Header } from '../../components/header';

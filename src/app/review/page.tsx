@@ -5,7 +5,6 @@ import {
   AuthGetCurrentUserServer,
   cookiesClient,
 } from '../../utils/amplify-utils';
-import { content as initialContent } from '../../lib/content';
 
 export default async function Page({
   searchParams,
@@ -36,10 +35,7 @@ export default async function Page({
 
   return (
     <>
-      <Editor
-        dateString={dateString}
-        content={data?.content || initialContent}
-      />
+      <Editor dateString={dateString} />
       <br />
       <br />
       <Footer />

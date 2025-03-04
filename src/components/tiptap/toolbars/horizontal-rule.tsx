@@ -29,7 +29,7 @@ const HorizontalRuleToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Horizontal Rule</span>
+            <span>구분선</span>
         </TooltipContent>
       </Tooltip>
     )

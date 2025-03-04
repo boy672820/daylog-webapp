@@ -29,7 +29,7 @@ const ImagePlaceholderToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Image</span>
+          <span>이미지</span>
         </TooltipContent>
       </Tooltip>
     )

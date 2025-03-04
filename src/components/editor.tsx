@@ -8,29 +8,25 @@ import { RichTextEditor } from './tiptap/rich-text-editor';
 import { Button } from './ui/button';
 import { useDebounce } from '../hooks/use-debounce';
 import { useAuthSession } from '../hooks/use-auth-session';
+import { content as initialContent } from '@/lib/content';
 import { type Schema } from '../../amplify/data/resource';
 
 const client = generateClient<Schema>();
 
-export function Editor({
-  dateString: date,
-  content: initialContent,
-}: {
-  dateString: string;
-  content: string;
-}) {
-  const [content, setContent] = useState<string>(initialContent);
+export function Editor({ dateString: date }: { dateString: string }) {
+  const [content, setContent] = useState<string>('');
 
   const debouncedContent = useDebounce(content, 1000);
   const { currentUser } = useAuthSession();
 
   const updateDaily = useCallback(async () => {
-    const { data } = await client.models.Daily.update({
+    if (debouncedContent === '') return;
+
+    await client.models.Daily.update({
       userId: currentUser.userId,
       date,
       content: debouncedContent,
     });
-    console.log('Update daily: ', data);
   }, [date, currentUser, debouncedContent]);
 
   useEffect(() => {
@@ -38,7 +34,7 @@ export function Editor({
   }, [debouncedContent, updateDaily]);
 
   return (
-    <div className='flex flex-col px-4 min-h-screen max-w-5xl mx-auto'>
+    <div className='flex flex-col px-4 min-h-screen max-w-6xl mx-auto'>
       <section className='container mx-auto pt-16 pb-8'>
         <h1 className='text-2xl font-bold text-gray-900 dark:text-white'>
           {format(date, 'yyyy년 M월 d일 (EEEE)', { locale: ko })}
@@ -51,7 +47,7 @@ export function Editor({
         <RichTextEditor
           className='w-full rounded-xl'
           onUpdate={setContent}
-          initialContent={content}
+          initialContent={initialContent}
         />
         <div className='flex my-4 justify-end'>
           <Button variant={'ghost'} size={'lg'} disabled>

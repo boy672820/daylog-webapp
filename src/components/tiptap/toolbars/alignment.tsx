@@ -97,7 +97,7 @@ export const AlignmentTooolbar = () => {
             </Button>
           </DropdownMenuTrigger>
         </TooltipTrigger>
-        <TooltipContent>Text Alignment</TooltipContent>
+        <TooltipContent>텍스트 정렬</TooltipContent>
       </Tooltip>
       <DropdownMenuContent
         loop

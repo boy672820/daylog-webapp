@@ -48,7 +48,7 @@ const LinkToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(({ classNam
           </PopoverTrigger>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Link</span>
+          <span>링크</span>
         </TooltipContent>
       </Tooltip>
 

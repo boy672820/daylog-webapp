@@ -30,7 +30,7 @@ const CodeBlockToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Code Block</span>
+          <span>코드 블록</span>
         </TooltipContent>
       </Tooltip>
     )

@@ -30,7 +30,7 @@ const StrikeThroughToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Strikethrough</span>
+            <span>취소선</span>
           <span className="ml-1 text-xs text-gray-11">(cmd + shift + x)</span>
         </TooltipContent>
       </Tooltip>

@@ -1,34 +1,33 @@
-import { clsx, type ClassValue } from 'clsx';
+import { type ClassValue, clsx } from 'clsx';
+import { format } from 'date-fns';
 import { twMerge } from 'tailwind-merge';
 
+/**
+ * Combines multiple class values into a single className string
+ */
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-// 안전 비밀번호 자동 생성 (대문자, 소문자, 특수문자, 소문자 포함)
-export function generatePassword() {
-  const length = 16;
-  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numbers = '0123456789';
-  const special = '!@#$%^&*()_+';
-  const allChars = lowercase + uppercase + numbers + special;
+/**
+ * Generates a random password for auth flows
+ */
+export function generatePassword(): string {
+  return (
+    Math.random().toString(36).slice(2, 10) +
+    Math.random().toString(36).toUpperCase().slice(2, 4) +
+    '!1'
+  );
+}
 
-  // Ensure one of each character type
-  let password =
-    lowercase.charAt(Math.floor(Math.random() * lowercase.length)) +
-    uppercase.charAt(Math.floor(Math.random() * uppercase.length)) +
-    numbers.charAt(Math.floor(Math.random() * numbers.length)) +
-    special.charAt(Math.floor(Math.random() * special.length));
+export function formatDate(date: Date): string {
+  return format(date, 'yyyy-MM-dd');
+}
 
-  // Fill the rest randomly
-  for (let i = 4; i < length; i++) {
-    password += allChars.charAt(Math.floor(Math.random() * allChars.length));
-  }
-
-  // Shuffle the password characters
-  return password
-    .split('')
-    .sort(() => 0.5 - Math.random())
-    .join('');
+/**
+ * Truncates a string to a specified length
+ */
+export function truncateString(str: string, maxLength: number): string {
+  if (str.length <= maxLength) return str;
+  return str.slice(0, maxLength) + '...';
 }

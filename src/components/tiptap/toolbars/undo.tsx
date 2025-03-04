@@ -30,7 +30,7 @@ const UndoToolbar = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </Button>
         </TooltipTrigger>
         <TooltipContent>
-          <span>Undo</span>
+            <span>실행 취소</span>
         </TooltipContent>
       </Tooltip>
     )
