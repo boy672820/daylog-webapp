@@ -10,6 +10,7 @@ const schema = a.schema({
       updatedDate: a.datetime(),
     })
     .identifier(['userId', 'date'])
+    .secondaryIndexes((index) => [index('userId').sortKeys(['date'])])
     .authorization((allow) => [allow.owner().to(['read', 'create', 'update'])]),
 });
 
