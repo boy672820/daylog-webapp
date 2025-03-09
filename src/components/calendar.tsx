@@ -33,7 +33,9 @@ import { generateClient } from 'aws-amplify/api';
 import { Schema } from '../../amplify/data/resource';
 import { useAuthSession } from '../hooks/use-auth-session';
 
-export type CalendarProps = React.ComponentProps<typeof DayPicker>;
+export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
+  initialMonth: Date;
+};
 
 const client = generateClient<Schema>();
 
@@ -41,10 +43,11 @@ function Calendar({
   className,
   classNames,
   showOutsideDays = true,
+  initialMonth,
   ...props
 }: CalendarProps) {
   const [navigatingDate, setNavigatingDate] = useState<string | null>(null);
-  const [month, setMonth] = useState<Date>(new Date());
+  const [month, setMonth] = useState<Date>(initialMonth);
   const [writtenDates, setWrittenDates] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(false);
 
@@ -60,12 +63,12 @@ function Calendar({
 
       setIsLoading(true);
 
-      try {
-        const monthStart = startOfMonth(date);
-        const monthEnd = endOfMonth(date);
-        const calendarStart = startOfWeek(monthStart, { weekStartsOn: 0 });
-        const calendarEnd = endOfWeek(monthEnd, { weekStartsOn: 0 });
+      const monthStart = startOfMonth(date);
+      const monthEnd = endOfMonth(date);
+      const calendarStart = startOfWeek(monthStart, { weekStartsOn: 0 });
+      const calendarEnd = endOfWeek(monthEnd, { weekStartsOn: 0 });
 
+      try {
         const { data: dailies } =
           await client.models.Daily.listDailyByUserIdAndDate({
             userId: currentUser.userId,
@@ -74,18 +77,12 @@ function Calendar({
             },
           });
 
-        // Set으로 변환하여 빠른 조회가 가능하게 함
-        const dateSet = new Set<string>();
-        const contentMap = new Map<string, string>();
-
-        dailies.forEach((daily) => {
+        const dateSet = dailies.reduce<Set<string>>((acc, daily) => {
           if (daily?.date && daily?.content) {
-            dateSet.add(daily.date);
-            if (daily.content) {
-              contentMap.set(daily.date, daily.content);
-            }
+            acc.add(daily.date);
           }
-        });
+          return acc;
+        }, new Set());
 
         setWrittenDates(dateSet);
       } catch (error) {
@@ -109,17 +106,17 @@ function Calendar({
   };
 
   // 날짜 클릭 핸들러
-  const handleDateClick = (dateStr: string) => {
-    setNavigatingDate(dateStr);
-    router.push(`/review?date=${dateStr}`);
+  const handleDateClick = (dateString: string) => {
+    setNavigatingDate(dateString);
+    router.push(`/daily?date=${dateString}`);
   };
 
   const currentHour = new Date().getHours();
 
   return (
-    <div className='space-y-4'>
+    <div className='space-y-4 w-full'>
       {isLoading ? (
-        <div className='h-[500px] flex items-center justify-center'>
+        <div className='h-[500px] w-full flex items-center justify-center'>
           <Loader2 className='h-8 w-8 animate-spin text-primary' />
         </div>
       ) : (
@@ -182,7 +179,7 @@ Calendar.displayName = 'Calendar';
 interface ExtendedDayProps extends DayProps {
   navigatingDate: string | null;
   currentHour: number;
-  onDateClick: (dateStr: string) => void;
+  onDateClick: (dateString: string) => void;
   writtenDates: Set<string>;
 }
 
@@ -199,11 +196,11 @@ const Day = ({
   const isWeekend = date.getDay() === 0 || date.getDay() === 6;
   const isFutureDate = isFuture(date) || (isToday(date) && currentHour < 18);
   const disableToday = isTodayDate && currentHour < 18;
-  const dateStr = format(date, 'yyyy-MM-dd');
-  const isNavigating = navigatingDate === dateStr;
+  const dateString = format(date, 'yyyy-MM-dd');
+  const isNavigating = navigatingDate === dateString;
 
   // 해당 날짜에 회고가 작성되었는지 확인
-  const hasDaily = writtenDates.has(dateStr);
+  const hasDaily = writtenDates.has(dateString);
 
   // 공통 셀 스타일
   const cellStyle = cn(
@@ -270,7 +267,7 @@ const Day = ({
 
   // 클릭 가능한 날짜의 경우
   return (
-    <div className={cellStyle} onClick={() => onDateClick(dateStr)}>
+    <div className={cellStyle} onClick={() => onDateClick(dateString)}>
       <div className='flex justify-between items-center w-full'>
         <span className={dateStyle}>{date.getDate()}</span>
         {hasDaily && <BookOpen className='h-4 w-4 text-blue-400 mr-1' />}

@@ -47,6 +47,10 @@ const extensions = [
         case 'codeBlock':
           // never show the placeholder when editing code
           return '';
+        case 'orderedList':
+          return '';
+        case 'bulletList':
+          return '';
         default:
           return "글을 작성하거나, 명령어를 사용하려면 '/'키를 누르세요.";
       }

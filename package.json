@@ -11,6 +11,8 @@
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.5.2",
     "@aws-amplify/ui-react": "^6.9.2",
+    "@aws-sdk/client-eventbridge": "^3.758.0",
+    "@aws-sdk/lib-dynamodb": "^3.758.0",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-alert-dialog": "^1.1.4",
@@ -74,6 +76,7 @@
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "turndown": "^7.2.0",
     "uuid": "^11.1.0",
     "vaul": "^0.9.6",
     "zod": "^3.24.1"
@@ -81,11 +84,13 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.14.0",
     "@aws-amplify/backend-cli": "^1.4.9",
+    "@aws-lambda-powertools/logger": "^2.15.0",
     "@eslint/eslintrc": "^3",
     "@types/aws-lambda": "^8.10.147",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/turndown": "^5.0.5",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8",

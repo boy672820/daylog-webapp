@@ -33,9 +33,11 @@ export default async function Page({
     });
   }
 
+  const content = data?.content || undefined;
+
   return (
     <>
-      <Editor dateString={dateString} />
+      <Editor date={date} content={content} />
       <br />
       <br />
       <Footer />
