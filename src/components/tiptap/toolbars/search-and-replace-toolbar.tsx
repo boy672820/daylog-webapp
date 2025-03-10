@@ -1,56 +1,65 @@
-"use client"
-/* eslint-disable */
+'use client';
 // @ts-nocheck
-import { ArrowLeftIcon, ArrowRightIcon, X, Repeat } from "lucide-react"
-import { useEffect, useState } from "react"
+import { ArrowLeftIcon, ArrowRightIcon, X, Repeat } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
-import { Separator } from "@/components/ui/separator"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
-import { cn } from "@/lib/utils"
-import { useToolbar } from "./toolbar-provider"
-import type { SearchAndReplaceStorage } from "../extensions/search-and-replace"
+import { Button } from '@/components/ui/button';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { Separator } from '@/components/ui/separator';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { cn } from '@/lib/utils';
+import { useToolbar } from './toolbar-provider';
+import type { SearchAndReplaceStorage } from '../extensions/search-and-replace';
 
 export function SearchAndReplaceToolbar() {
-  const { editor } = useToolbar()
+  const { editor } = useToolbar();
 
-  const [open, setOpen] = useState(false)
-  const [replacing, setReplacing] = useState(false)
-  const [searchText, setSearchText] = useState("")
-  const [replaceText, setReplaceText] = useState("")
-  const [checked, setChecked] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [replacing, setReplacing] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  const [replaceText, setReplaceText] = useState('');
+  const [checked, setChecked] = useState(false);
 
-  const results = editor?.storage?.searchAndReplace.results as SearchAndReplaceStorage["results"]
-  const selectedResult = editor?.storage?.searchAndReplace.selectedResult as SearchAndReplaceStorage["selectedResult"]
+  const results = editor?.storage?.searchAndReplace
+    .results as SearchAndReplaceStorage['results'];
+  const selectedResult = editor?.storage?.searchAndReplace
+    .selectedResult as SearchAndReplaceStorage['selectedResult'];
 
-  const replace = () => editor?.chain().replace().run()
-  const replaceAll = () => editor?.chain().replaceAll().run()
-  const selectNext = () => editor?.chain().selectNextResult().run()
-  const selectPrevious = () => editor?.chain().selectPreviousResult().run()
-
-  useEffect(() => {
-    editor?.chain().setSearchTerm(searchText).run()
-  }, [searchText, editor])
+  const replace = () => editor?.chain().replace().run();
+  const replaceAll = () => editor?.chain().replaceAll().run();
+  const selectNext = () => editor?.chain().selectNextResult().run();
+  const selectPrevious = () => editor?.chain().selectPreviousResult().run();
 
   useEffect(() => {
-    editor?.chain().setReplaceTerm(replaceText).run()
-  }, [replaceText, editor])
+    editor?.chain().setSearchTerm(searchText).run();
+  }, [searchText, editor]);
 
   useEffect(() => {
-    editor?.chain().setCaseSensitive(checked).run()
-  }, [checked, editor])
+    editor?.chain().setReplaceTerm(replaceText).run();
+  }, [replaceText, editor]);
+
+  useEffect(() => {
+    editor?.chain().setCaseSensitive(checked).run();
+  }, [checked, editor]);
 
   useEffect(() => {
     if (!open) {
-      setReplaceText("")
-      setSearchText("")
-      setReplacing(false)
+      setReplaceText('');
+      setSearchText('');
+      setReplacing(false);
     }
-  }, [open])
+  }, [open]);
 
   return (
     <Popover open={open}>
@@ -58,15 +67,15 @@ export function SearchAndReplaceToolbar() {
         <TooltipTrigger asChild>
           <PopoverTrigger disabled={!editor} asChild>
             <Button
-              variant="ghost"
-              size="sm"
+              variant='ghost'
+              size='sm'
               onClick={() => {
-                setOpen(!open)
+                setOpen(!open);
               }}
-              className={cn("h-8 w-max px-3 font-normal")}
+              className={cn('h-8 w-max px-3 font-normal')}
             >
-              <Repeat className="mr-2 h-4 w-4" />
-                <p>찾기 & 바꾸기</p>
+              <Repeat className='mr-2 h-4 w-4' />
+              <p>찾기 & 바꾸기</p>
             </Button>
           </PopoverTrigger>
         </TooltipTrigger>
@@ -76,133 +85,164 @@ export function SearchAndReplaceToolbar() {
       </Tooltip>
 
       <PopoverContent
-        align="end"
+        align='end'
         onCloseAutoFocus={(e) => {
-          e.preventDefault()
+          e.preventDefault();
         }}
         onEscapeKeyDown={() => {
-          setOpen(false)
+          setOpen(false);
         }}
-        className="relative flex w-[400px] px-3 py-2.5"
+        className='relative flex w-[400px] px-3 py-2.5'
       >
         {!replacing ? (
-          <div className={cn("relative flex gap-1.5 items-center")}>
+          <div className={cn('relative flex gap-1.5 items-center')}>
             <Input
               value={searchText}
-              className=" w-48"
+              className=' w-48'
               onChange={(e) => {
-                setSearchText(e.target.value)
+                setSearchText(e.target.value);
               }}
-              placeholder="키워드 찾기"
+              placeholder='키워드 찾기'
             />
             <span>
-              {results?.length === 0 ? selectedResult : selectedResult + 1}/{results?.length}
+              {results?.length === 0 ? selectedResult : selectedResult + 1}/
+              {results?.length}
             </span>
-            <Button onClick={selectPrevious} size="icon" variant="ghost" className="size-7">
-              <ArrowLeftIcon className="size-4" />
-            </Button>
-            <Button onClick={selectNext} size="icon" className="size-7" variant="ghost">
-              <ArrowRightIcon className="h-4 w-4" />
-            </Button>
-            <Separator orientation="vertical" className="h-7 mx-0.5" />
             <Button
-              onClick={() => {
-                setReplacing(true)
-              }}
-              size="icon"
-              className="size-7"
-              variant="ghost"
+              onClick={selectPrevious}
+              size='icon'
+              variant='ghost'
+              className='size-7'
             >
-              <Repeat className="h-4 w-4" />
+              <ArrowLeftIcon className='size-4' />
             </Button>
             <Button
-              onClick={() => {
-                setOpen(false)
-              }}
-              size="icon"
-              className="size-7"
-              variant="ghost"
+              onClick={selectNext}
+              size='icon'
+              className='size-7'
+              variant='ghost'
             >
-              <X className="h-4 w-4" />
+              <ArrowRightIcon className='h-4 w-4' />
+            </Button>
+            <Separator orientation='vertical' className='h-7 mx-0.5' />
+            <Button
+              onClick={() => {
+                setReplacing(true);
+              }}
+              size='icon'
+              className='size-7'
+              variant='ghost'
+            >
+              <Repeat className='h-4 w-4' />
+            </Button>
+            <Button
+              onClick={() => {
+                setOpen(false);
+              }}
+              size='icon'
+              className='size-7'
+              variant='ghost'
+            >
+              <X className='h-4 w-4' />
             </Button>
           </div>
         ) : (
-          <div className={cn("relative w-full")}>
+          <div className={cn('relative w-full')}>
             <X
               onClick={() => {
-                setOpen(false)
+                setOpen(false);
               }}
-              className="absolute right-3 top-3 h-4 w-4 cursor-pointer"
+              className='absolute right-3 top-3 h-4 w-4 cursor-pointer'
             />
-            <div className="flex w-full items-center gap-3">
+            <div className='flex w-full items-center gap-3'>
               <Button
-                size="icon"
-                className="size-7 rounded-full"
-                variant="ghost"
+                size='icon'
+                className='size-7 rounded-full'
+                variant='ghost'
                 onClick={() => {
-                  setReplacing(false)
+                  setReplacing(false);
                 }}
               >
-                <ArrowLeftIcon className="h-4 w-4" />
+                <ArrowLeftIcon className='h-4 w-4' />
               </Button>
-                <h2 className="text-sm font-medium">찾기 및 바꾸기</h2>
+              <h2 className='text-sm font-medium'>찾기 및 바꾸기</h2>
             </div>
 
-            <div className="my-2 w-full">
-              <div className="mb-3">
-                <Label className="mb-1 text-xs text-gray-11">키워드</Label>
+            <div className='my-2 w-full'>
+              <div className='mb-3'>
+                <Label className='mb-1 text-xs text-gray-11'>키워드</Label>
                 <Input
                   value={searchText}
                   onChange={(e) => {
-                    setSearchText(e.target.value)
+                    setSearchText(e.target.value);
                   }}
-                  placeholder="검색어"
+                  placeholder='검색어'
                 />
-                {results?.length === 0 ? selectedResult : selectedResult + 1}/{results?.length}
+                {results?.length === 0 ? selectedResult : selectedResult + 1}/
+                {results?.length}
               </div>
-              <div className="mb-2">
-                <Label className="mb-1 text-xs text-gray-11">바꿀 내용</Label>
+              <div className='mb-2'>
+                <Label className='mb-1 text-xs text-gray-11'>바꿀 내용</Label>
                 <Input
-                  className="w-full"
+                  className='w-full'
                   value={replaceText}
                   onChange={(e) => {
-                    setReplaceText(e.target.value)
+                    setReplaceText(e.target.value);
                   }}
-                  placeholder="바꾸기"
+                  placeholder='바꾸기'
                 />
               </div>
-              <div className="mt-3 flex items-center space-x-2">
+              <div className='mt-3 flex items-center space-x-2'>
                 <Checkbox
                   checked={checked}
                   onCheckedChange={(checked: boolean) => {
-                    setChecked(checked)
+                    setChecked(checked);
                   }}
-                  id="match_case"
+                  id='match_case'
                 />
                 <Label
-                  htmlFor="match_case"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  htmlFor='match_case'
+                  className='text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70'
                 >
                   대소문자 구분
                 </Label>
               </div>
             </div>
 
-            <div className="actions mt-6 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Button onClick={selectPrevious} size="icon" className="h-7 w-7" variant="secondary">
-                  <ArrowLeftIcon className="h-4 w-4" />
+            <div className='actions mt-6 flex items-center justify-between'>
+              <div className='flex items-center gap-2'>
+                <Button
+                  onClick={selectPrevious}
+                  size='icon'
+                  className='h-7 w-7'
+                  variant='secondary'
+                >
+                  <ArrowLeftIcon className='h-4 w-4' />
                 </Button>
-                <Button onClick={selectNext} size="icon" className="h-7 w-7" variant="secondary">
-                  <ArrowRightIcon className="h-4 w-4" />
+                <Button
+                  onClick={selectNext}
+                  size='icon'
+                  className='h-7 w-7'
+                  variant='secondary'
+                >
+                  <ArrowRightIcon className='h-4 w-4' />
                 </Button>
               </div>
 
-              <div className="main-actions flex items-center gap-2">
-                <Button size="sm" className="h-7 px-3 text-xs" variant="secondary" onClick={replaceAll}>
+              <div className='main-actions flex items-center gap-2'>
+                <Button
+                  size='sm'
+                  className='h-7 px-3 text-xs'
+                  variant='secondary'
+                  onClick={replaceAll}
+                >
                   전체 바꾸기
                 </Button>
-                <Button onClick={replace} size="sm" className="h-7 px-3 text-xs">
+                <Button
+                  onClick={replace}
+                  size='sm'
+                  className='h-7 px-3 text-xs'
+                >
                   바꾸기
                 </Button>
               </div>
@@ -211,6 +251,5 @@ export function SearchAndReplaceToolbar() {
         )}
       </PopoverContent>
     </Popover>
-  )
+  );
 }
-

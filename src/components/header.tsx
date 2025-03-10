@@ -37,9 +37,7 @@ import { Loader2 } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 // 사용자 콤보 정보를 가져오는 함수 (실제 API 연동 필요)
-const fetchUserStreak = async (
-  userId: string
-): Promise<{
+const fetchUserStreak = async (): Promise<{
   currentStreak: number;
   longestStreak: number;
   lastReflectionDate: Date | null;
@@ -62,7 +60,7 @@ export function Header() {
   const [verificationMessage, setVerificationMessage] = useState<string | null>(
     null
   );
-  const [userId, setUserId] = useState<string | null>(null);
+  // const [userId, setUserId] = useState<string | null>(null);
   const [streakInfo, setStreakInfo] = useState<{
     currentStreak: number;
     longestStreak: number;
@@ -80,7 +78,7 @@ export function Header() {
       try {
         const userAttributes = await fetchUserAttributes();
         setEmail(userAttributes.email || null);
-        setUserId(userAttributes.sub || null);
+        // setUserId(userAttributes.sub || null);
 
         // 이메일 인증 상태 확인
         const emailVerified = userAttributes.email_verified === 'true';
@@ -88,7 +86,7 @@ export function Header() {
 
         // 인증된 사용자인 경우 콤보 정보 가져오기
         if (emailVerified && userAttributes.sub) {
-          fetchUserStreakInfo(userAttributes.sub);
+          fetchUserStreakInfo();
         }
       } catch (error) {
         console.error('Failed to fetch user info:', error);
@@ -99,10 +97,10 @@ export function Header() {
   }, []);
 
   // 콤보 정보 가져오기
-  const fetchUserStreakInfo = async (userId: string) => {
+  const fetchUserStreakInfo = async () => {
     setLoadingStreak(true);
     try {
-      const streak = await fetchUserStreak(userId);
+      const streak = await fetchUserStreak();
       setStreakInfo(streak);
     } catch (error) {
       console.error('Failed to fetch user streak:', error);

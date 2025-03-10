@@ -26,9 +26,9 @@ const schema = a
         endDate: a.date().required(),
         createdDate: a.datetime(),
         updatedDate: a.datetime(),
-        contents: a.hasMany('SummaryContent', ['userId', 'summaryId']),
+        contents: a.hasMany('SummaryContent', ['summaryId', 'userId']),
       })
-      .identifier(['userId', 'summaryId'])
+      .identifier(['summaryId', 'userId'])
       .authorization((allow) => [
         allow.owner().to(['read', 'create', 'update']),
       ]),
@@ -41,7 +41,7 @@ const schema = a
         content: a.string(),
         createdDate: a.datetime(),
         updatedDate: a.datetime(),
-        summary: a.belongsTo('Summary', ['userId', 'summaryId']),
+        summary: a.belongsTo('Summary', ['summaryId', 'userId']),
       })
       .identifier(['summaryId', 'userId', 'date'])
       .secondaryIndexes((index) => [index('userId').sortKeys(['date'])])
