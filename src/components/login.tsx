@@ -179,6 +179,7 @@ export default function Login() {
       }
     }
 
+    console.error(error);
     setError(
       '로그인 코드 전송 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.'
     );
@@ -232,14 +233,23 @@ export default function Login() {
       }
     } catch (error) {
       if (error instanceof Error) {
-        if (error.name === 'CodeMismatchException') {
-          setCodeError('인증 코드가 일치하지 않습니다. 다시 확인해주세요.');
-        } else if (error.name === 'ExpiredCodeException') {
-          setCodeError(
-            '인증 코드가 만료되었습니다. 새로운 코드를 요청해주세요.'
-          );
-        } else {
-          setError('인증 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.');
+        switch (error.name) {
+          case 'NotAuthorizedException':
+            setCodeError(
+              '인증 시간이 만료되었습니다. 인증 코드를 다시 전송해주세요.'
+            );
+            break;
+          case 'CodeMismatchException':
+            setCodeError('인증 코드가 일치하지 않습니다. 다시 확인해주세요.');
+            break;
+          case 'ExpiredCodeException':
+            setCodeError(
+              '인증 코드가 만료되었습니다. 새로운 코드를 요청해주세요.'
+            );
+            break;
+          default:
+            setError('인증 중 문제가 발생했습니다. 잠시 후 다시 시도해주세요.');
+            break;
         }
       }
     } finally {
@@ -317,16 +327,12 @@ export default function Login() {
             </div>
           )}
 
-          <Button variant='outline' className='w-full' disabled={isLoading}>
-            GitHub로 로그인
-          </Button>
-
           <div className='relative'>
             <div className='absolute inset-0 flex items-center'>
               <span className='w-full border-t bg-accent' />
             </div>
             <div className='relative flex justify-center text-xs'>
-              <span className='bg-black px-2'>또는 이메일로 계속하기</span>
+              <span className='bg-black px-2'>이메일로 계속하기</span>
             </div>
           </div>
 
@@ -404,7 +410,11 @@ export default function Login() {
                 <Input
                   id='authCode'
                   type='text'
-                  placeholder='인증 코드 6자리'
+                  placeholder={
+                    confirmedTypeRef.current === 'SIGN_UP'
+                      ? '인증 코드 6자리'
+                      : '인증 코드 8자리'
+                  }
                   value={authCode}
                   onChange={(e) => {
                     setAuthCode(e.target.value);

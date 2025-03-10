@@ -17,7 +17,6 @@ interface Payload {
 const { resourceConfig, libraryOptions } = await getAmplifyDataClientConfig(
   env
 );
-
 Amplify.configure(resourceConfig, libraryOptions);
 
 const client = generateClient<Schema>();
