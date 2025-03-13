@@ -288,13 +288,13 @@ export function Header() {
                 >
                   <DropdownMenuLabel className='font-normal'>
                     <div className='flex flex-col space-y-1'>
-                      <p className='text-sm font-medium leading-none items-center'>
+                      <div className='text-sm font-medium leading-none items-center'>
                         사용자
-                      </p>
-                      <p className='text-xs leading-none flex text-muted-foreground gap-1'>
+                      </div>
+                      <div className='text-xs leading-none flex text-muted-foreground gap-1'>
                         {email}
                         {renderVerificationStatus()}
-                      </p>
+                      </div>
                       {/* 드롭다운 메뉴에도 콤보 정보 표시 */}
                       {streakInfo.currentStreak > 0 && (
                         <div className='flex items-center gap-1 mt-2 text-orange-400'>

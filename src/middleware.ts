@@ -27,7 +27,12 @@ export async function middleware(request: NextRequest) {
   }
 
   // 보호된 경로 처리 - 인증되지 않은 사용자는 로그인으로 리다이렉트
-  if (!authenticated && !pathname.match(/^\/(api|_next\/static|_next\/image|favicon\.ico|login|signup)/)) {
+  if (
+    !authenticated &&
+    !pathname.match(
+      /^\/(api|_next\/static|_next\/image|favicon\.ico|login||)/
+    )
+  ) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 

@@ -10,7 +10,7 @@ const logger = new Logger({
   serviceName: 'dynamodb-stream-daily-handler',
 });
 
-const eventClient = new EventBridgeClient({ region: 'ap-northeast-2' });
+const eventClient = new EventBridgeClient({});
 
 export const handler: DynamoDBStreamHandler = async (event) => {
   for (const record of event.Records) {

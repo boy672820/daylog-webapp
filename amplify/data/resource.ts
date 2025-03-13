@@ -48,14 +48,36 @@ const schema = a
       .authorization((allow) => [
         allow.owner().to(['read', 'create', 'update']),
       ]),
+
+    SummaryType: a.enum(['W']),
+    DailySummarized: a.customType({
+      type: a.ref('SummaryType').required(),
+      year: a.integer().required(),
+      value: a.integer().required(),
+    }),
+    summarizeDailes: a
+      .mutation()
+      .arguments({
+        type: a.string().required(),
+        year: a.integer().required(),
+        value: a.integer().required(),
+      })
+      .returns(a.ref('DailySummarized'))
+      .handler(
+        a.handler.custom({
+          dataSource: 'DaylogEventBridgeDataSource',
+          entry: './publishSummarizeDailies.js',
+        })
+      )
+      .authorization((allow) => [allow.publicApiKey()]),
   })
-  .authorization((allow) => [allow.resource(dailyConsumer)]);
+  .authorization((allow) => [
+    allow.resource(dailyConsumer),
+    allow.publicApiKey(),
+  ]);
 
 export type Schema = ClientSchema<typeof schema>;
 
 export const data = defineData({
   schema,
-  authorizationModes: {
-    defaultAuthorizationMode: 'userPool',
-  },
 });
