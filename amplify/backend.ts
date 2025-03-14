@@ -47,7 +47,7 @@ new Rule(eventStack, 'DailySummarizedRule', {
     detail: {
       type: ['W'],
       year: [{ exists: true }],
-      weekNumber: [{ exists: true }],
+      value: [{ exists: true }],
     },
   },
 });
