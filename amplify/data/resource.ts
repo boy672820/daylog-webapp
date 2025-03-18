@@ -1,5 +1,7 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 import { dailyConsumer } from '../functions/daily-consumer/resource';
+import { summaryWeeklyReflection } from '../functions/summary-weekly-reflection/resource';
+import { publishWeeklyReflection } from '../functions/publish-weekly-reflection/resource';
 
 const schema = a
   .schema({
@@ -48,31 +50,11 @@ const schema = a
       .authorization((allow) => [
         allow.owner().to(['read', 'create', 'update']),
       ]),
-
-    SummaryType: a.enum(['W']),
-    DailySummarized: a.customType({
-      type: a.ref('SummaryType').required(),
-      year: a.integer().required(),
-      value: a.integer().required(),
-    }),
-    summarizeDailes: a
-      .mutation()
-      .arguments({
-        type: a.string().required(),
-        year: a.integer().required(),
-        value: a.integer().required(),
-      })
-      .returns(a.ref('DailySummarized'))
-      .handler(
-        a.handler.custom({
-          dataSource: 'DaylogEventBridgeDataSource',
-          entry: './publishSummarizeDailies.js',
-        })
-      )
-      .authorization((allow) => [allow.publicApiKey()]),
   })
   .authorization((allow) => [
     allow.resource(dailyConsumer),
+    allow.resource(publishWeeklyReflection),
+    allow.resource(summaryWeeklyReflection),
     allow.publicApiKey(),
   ]);
 

@@ -8,27 +8,27 @@
 - **AWS EventBridge**: 주간 회고록 요약 요청을 트리거하고, SQS에 이벤트를 전달합니다.
 - **AWS SQS (Simple Queue Service)**: 트래픽 조절 및 실패한 요청을 처리하기 위한 메시지 큐 역할을 합니다.
 - **AWS Lambda**:
-  - `Aggregate Lambda`: EventBridge에서 트리거되어 사용자별 요약 이벤트를 SQS에 전송합니다.
-  - `Summary Lambda`: SQS에서 이벤트를 받아 ChatGPT API 요청을 수행하고, 회고록을 저장합니다.
+  - `Publisher Lambda`: EventBridge에서 트리거되어 사용자별 요약 이벤트를 SQS에 전송합니다.
+  - `Consumer Lambda`: SQS에서 이벤트를 받아 ChatGPT API 요청을 수행하고, 회고록을 저장합니다.
 - **AWS Dead Letter Queue (DLQ)**: 실패한 이벤트를 저장하고 재처리할 수 있도록 합니다.
 
 ### 2.2. 데이터 흐름
-1. **EventBridge**가 매주 `Aggregate Lambda`를 트리거합니다.
-2. `Aggregate Lambda`는 사용자별 `events.summary` 이벤트를 **SQS**에 게시합니다.
-3. `Summary Lambda`는 SQS에서 메시지를 읽고 **ChatGPT API**를 호출하여 회고록을 요약합니다.
+1. **EventBridge**가 매주 `Publisher Lambda`를 트리거합니다.
+2. `Publisher Lambda`는 사용자별 `events.summary` 이벤트를 **SQS**에 게시합니다.
+3. `Consumer Lambda`는 SQS에서 메시지를 읽고 **ChatGPT API**를 호출하여 회고록을 요약합니다.
 4. 결과를 **Summary 테이블(DynamoDB 또는 RDS)**에 저장합니다.
 5. 실패한 요청은 **SQS DLQ**로 저장되어 나중에 재처리됩니다.
 
 ### 2.3. 아키텍처 다이어그램 (Mermaid)
 ```mermaid
 graph TD;
-    EventBridge -->|Trigger| AggregateLambda
-    AggregateLambda -->|Send Message| SQS
-    SQS -->|Consume| SummaryLambda
-    SummaryLambda -->|Call API| ChatGPT
+    EventBridge -->|Trigger| PublisherLambda
+    PublisherLambda -->|Send Message| SQS
+    SQS -->|Consume| ConsumerLambda
+    ConsumerLambda -->|Call API| ChatGPT
     ChatGPT -->|Generate Summary| SummaryTable
-    SummaryLambda -->|On Failure| DLQ
-    DLQ -->|Reprocess| SummaryLambda
+    ConsumerLambda -->|On Failure| DLQ
+    DLQ -->|Reprocess| ConsumerLambda
 ```
 
 ## 3. 재시도 및 장애 대응

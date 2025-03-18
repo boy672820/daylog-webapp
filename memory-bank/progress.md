@@ -15,6 +15,7 @@
 - 캘린더 뷰 구현
 - 사용자 인증 시스템 구현
 - DynamoDB 스트림 및 이벤트 처리 구현
+- summary-weekly-reflection Lambda 함수 구현 (주간 회고 AI 요약)
 
 ## 진행 중인 작업
 - 주간 요약 생성 기능 개발
@@ -56,7 +57,7 @@ flowchart TD
         subgraph Lambda["Lambda 함수"]
             StreamLambda["dynamoDBStreamDaily\n(스트림 처리)"]
             ConsumerLambda["dailyConsumer\n(이벤트 소비)"]
-            SummaryLambda["주간 요약 생성\n(미구현)"]
+            SummaryLambda["주간 요약 생성\n(summary-weekly-reflection)"]
         end
         
         EventBridge["EventBridge\n(이벤트 버스)"]

@@ -1,12 +1,14 @@
 # 현재 작업 컨텍스트
 
 ## 현재 작업 중인 기능/태스크
-- 프로젝트 코드 분석 및 아키텍처 이해
+- 주간 회고 AI 요약 기능 구현
 
 ## 최근 변경사항
 - memory-bank 디렉토리 생성
 - 핵심 메모리 뱅크 파일 생성 (projectBrief.md, activeContext.md, productContext.md, progress.md, decisionLog.md, systemPatterns.md)
 - 프로젝트 코드 분석 완료
+- DailySummarizedRule을 처리하는 Lambda 함수(daily-summarized) 추가
+- summary-weekly-reflection Lambda 함수 구현 (주간 회고 AI 요약)
 
 ## 현재 이슈/문제점
 - 없음

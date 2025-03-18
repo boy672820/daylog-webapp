@@ -23,7 +23,7 @@ export const handler: DynamoDBStreamHandler = async (event) => {
       eventName: record.eventName,
     });
 
-    await eventClient.send(
+    const result = await eventClient.send(
       new PutEventsCommand({
         Entries: [
           {
@@ -34,11 +34,20 @@ export const handler: DynamoDBStreamHandler = async (event) => {
             }),
             DetailType: 'DailyModified',
             EventBusName: 'default',
-            Source: 'kr.co.daylog.services.dynamodb-stream-daily',
+            Source: 'kr.co.daylog.services.dailies',
           },
         ],
       })
     );
+
+    // 실패한 이벤트 처리
+    if (result.FailedEntryCount && result.FailedEntryCount > 0) {
+      logger.warn(`Failed to publish ${result.FailedEntryCount} events`, {
+        failedEntries: result.Entries?.filter((entry) => entry.ErrorCode),
+      });
+    } else {
+      logger.info(`Successfully published events to EventBridge`);
+    }
 
     return { batchItemFailures: [] };
   }
