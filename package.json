@@ -10,7 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:unit": "jest --testPathPattern=tests/units",
-    "test:integration": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --testPathPattern=tests/integrations"
+    "test:integration": "NODE_OPTIONS=\"$NODE_OPTIONS --experimental-vm-modules\" jest --testPathPattern=tests/integrations",
+    "seed": "ts-node scripts/seed-test-summary.ts"
   },
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.5.2",

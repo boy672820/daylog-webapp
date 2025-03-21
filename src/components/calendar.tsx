@@ -37,7 +37,9 @@ export type CalendarProps = React.ComponentProps<typeof DayPicker> & {
   initialMonth: Date;
 };
 
-const client = generateClient<Schema>();
+const client = generateClient<Schema>({
+  authMode: 'userPool',
+});
 
 function Calendar({
   className,

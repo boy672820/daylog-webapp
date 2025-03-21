@@ -13,13 +13,7 @@ export class AmplifyDataClientAdapter implements DataClient {
   async fetchSummariesByWeekId(weekId: string): Promise<SummaryItem[]> {
     try {
       const { data: allSummaries, errors } =
-        await this.client.models.Summary.list({
-          filter: {
-            summaryId: {
-              eq: weekId,
-            },
-          },
-        });
+        await this.client.models.Summary.list({ summaryId: weekId });
 
       if (errors) {
         this.logger.error('Failed to fetch summaries', { weekId, errors });

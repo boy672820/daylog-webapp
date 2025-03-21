@@ -33,6 +33,7 @@ const schema = a
       .identifier(['summaryId', 'userId'])
       .authorization((allow) => [
         allow.owner().to(['read', 'create', 'update']),
+        allow.publicApiKey(),
       ]),
 
     SummaryContent: a
@@ -49,6 +50,7 @@ const schema = a
       .secondaryIndexes((index) => [index('userId').sortKeys(['date'])])
       .authorization((allow) => [
         allow.owner().to(['read', 'create', 'update']),
+        allow.publicApiKey(),
       ]),
   })
   .authorization((allow) => [
@@ -62,4 +64,7 @@ export type Schema = ClientSchema<typeof schema>;
 
 export const data = defineData({
   schema,
+  authorizationModes: {
+    defaultAuthorizationMode: 'apiKey',
+  },
 });

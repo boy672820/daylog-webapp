@@ -12,6 +12,7 @@ import { LambdaFunction, SqsQueue } from 'aws-cdk-lib/aws-events-targets';
 import { summaryWeeklyReflection } from './functions/summary-weekly-reflection/resource';
 import { Queue } from 'aws-cdk-lib/aws-sqs';
 import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
+import { Alarm } from 'aws-cdk-lib/aws-cloudwatch';
 
 /**
  * @see https://docs.amplify.aws/react/build-a-backend/ to add storage, functions, and more
@@ -25,18 +26,33 @@ const backend = defineBackend({
   summaryWeeklyReflection,
 });
 
+const dlq = new Queue(backend.stack, 'WeeklySummaryDLQ', {
+  retentionPeriod: Duration.days(14),
+});
 const weeklySummaryRequestQueue = new Queue(
   backend.stack,
   'WeeklySummaryRequestQueue',
   {
-    visibilityTimeout: Duration.seconds(300), // 5분, Lambda 함수 타임아웃보다 길게 설정
+    visibilityTimeout: Duration.seconds(45), // 45초, Lambda 함수 타임아웃보다 길게 설정
+    deadLetterQueue: {
+      queue: dlq,
+      maxReceiveCount: 3,
+    },
   }
 );
+
+// CloudWatch 알람 설정
+new Alarm(backend.stack, 'DLQMessagesAlarm', {
+  metric: dlq.metricApproximateNumberOfMessagesVisible(),
+  threshold: 1,
+  evaluationPeriods: 1,
+});
 
 backend.summaryWeeklyReflection.resources.lambda.addEventSource(
   new SqsEventSource(weeklySummaryRequestQueue, {
     batchSize: 10,
     maxBatchingWindow: Duration.seconds(30),
+    reportBatchItemFailures: true,
   })
 );
 

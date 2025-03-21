@@ -11,7 +11,9 @@ import { useAuthSession } from '../hooks/use-auth-session';
 import { content as defaultContent } from '@/lib/content';
 import { type Schema } from '../../amplify/data/resource';
 
-const client = generateClient<Schema>();
+const client = generateClient<Schema>({
+  authMode: 'userPool',
+});
 
 export function Editor({
   date,
