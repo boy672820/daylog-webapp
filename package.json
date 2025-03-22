@@ -2,6 +2,10 @@
   "name": "daylog-webapp",
   "version": "0.1.0",
   "private": true,
+  "exports": {
+    "./schema": "./amplify/data/resource.ts",
+    "./outputs": "./amplify_outputs.json"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
