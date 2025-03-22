@@ -16,6 +16,7 @@
 - 사용자 인증 시스템 구현
 - DynamoDB 스트림 및 이벤트 처리 구현
 - summary-weekly-reflection Lambda 함수 구현 (주간 회고 AI 요약)
+- summary-weekly-reflection Lambda 함수의 Step Functions 리팩토링 설계 및 구현
 
 ## 진행 중인 작업
 - 주간 요약 생성 기능 개발
@@ -53,15 +54,23 @@ flowchart TD
         end
         
         DynamoDBStream["DynamoDB 스트림"]
-        
         subgraph Lambda["Lambda 함수"]
             StreamLambda["dynamoDBStreamDaily\n(스트림 처리)"]
             ConsumerLambda["dailyConsumer\n(이벤트 소비)"]
             SummaryLambda["주간 요약 생성\n(summary-weekly-reflection)"]
+            
+            subgraph StepFunctions["Step Functions 워크플로우"]
+                TriggerLambda["trigger\n(워크플로우 시작)"]
+                CheckLambda["check\n(처리 여부 확인)"]
+                FetchLambda["fetch\n(데이터 조회)"]
+                GenerateLambda["generate-with-ai\n(AI 요약 생성)"]
+                SaveLambda["save\n(결과 저장)"]
+            end
         end
         
         EventBridge["EventBridge\n(이벤트 버스)"]
         SQS["SQS 큐"]
+        StepFunctionsSM["Step Functions\n상태 머신"]
         
         OpenAI["OpenAI API"]
     end
@@ -86,11 +95,25 @@ flowchart TD
     EventBridge -->|"DailyModified 이벤트"| ConsumerLambda
     ConsumerLambda --> SummaryContentTable
     
-    EventBridge -->|"DailySummarized 이벤트"| SQS
+    EventBridge -->|"WeeklySummaryRequested 이벤트"| SQS
+    
+    %% 기존 Lambda 흐름
     SQS --> SummaryLambda
     SummaryLambda --> OpenAI
     OpenAI --> SummaryLambda
     SummaryLambda --> SummaryTable
+    
+    %% Step Functions 워크플로우 흐름
+    SQS --> TriggerLambda
+    TriggerLambda --> StepFunctionsSM
+    StepFunctionsSM --> CheckLambda
+    CheckLambda -->|"이미 처리됨"| StepFunctionsSM
+    CheckLambda -->|"처리 필요"| FetchLambda
+    FetchLambda --> GenerateLambda
+    GenerateLambda --> OpenAI
+    OpenAI --> GenerateLambda
+    GenerateLambda --> SaveLambda
+    SaveLambda --> SummaryTable
     
     SummaryContentTable --> SummaryTable
 ```
@@ -104,6 +127,7 @@ flowchart TD
 | 일일 회고 기능 | 완료 | ✅ |
 | 캘린더 뷰 | 완료 | ✅ |
 | 이벤트 처리 시스템 | 완료 | ✅ |
+| Step Functions 리팩토링 | 완료 | ✅ |
 | AI 요약 기능 | 진행 중 | 🔄 |
 | 연속 작성 기록 시스템 | 진행 중 | 🔄 |
 | 모바일 최적화 | 예정 | ⏳ |

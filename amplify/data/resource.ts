@@ -1,6 +1,10 @@
 import { type ClientSchema, a, defineData } from '@aws-amplify/backend';
 import { dailyConsumer } from '../functions/daily-consumer/resource';
-import { summaryWeeklyReflection } from '../functions/summary-weekly-reflection/resource';
+import {
+  summaryWeeklyReflectionCheck,
+  summaryWeeklyReflectionFetch,
+  summaryWeeklyReflectionSave,
+} from '../functions/summary-weekly-reflection/resource';
 import { publishWeeklyReflection } from '../functions/publish-weekly-reflection/resource';
 
 const schema = a
@@ -56,7 +60,9 @@ const schema = a
   .authorization((allow) => [
     allow.resource(dailyConsumer),
     allow.resource(publishWeeklyReflection),
-    allow.resource(summaryWeeklyReflection),
+    allow.resource(summaryWeeklyReflectionCheck),
+    allow.resource(summaryWeeklyReflectionFetch),
+    allow.resource(summaryWeeklyReflectionSave),
     allow.publicApiKey(),
   ]);
 

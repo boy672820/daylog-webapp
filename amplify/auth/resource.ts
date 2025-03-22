@@ -108,14 +108,8 @@ export const auth = defineAuth({
       },
     },
     externalProviders: {
-      callbackUrls: [
-        'http://localhost:3000/login',
-        'https://day-log.co.kr/login',
-      ],
-      logoutUrls: [
-        'http://localhost:3000/logout',
-        'https://day-log.co.kr/logout',
-      ],
+      callbackUrls: ['https://day-log.co.kr/login'],
+      logoutUrls: ['https://day-log.co.kr/logout'],
     },
   },
   senders: {

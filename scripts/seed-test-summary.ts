@@ -17,6 +17,7 @@ import { fetchAuthSession, signIn } from 'aws-amplify/auth';
 
 // 인증 방식 선택 (환경 변수로 설정 가능)
 const AUTH_MODE = process.env.AUTH_MODE || 'apiKey'; // 'iam', 'userPool', 'apiKey'
+const SEEDING_COUNT = Number(process.env.SEEDING_COUNT) || 100;
 
 console.log(`Using authentication mode: ${AUTH_MODE}`);
 
@@ -332,7 +333,7 @@ async function createSummaryContents(
 async function seedTestData(): Promise<void> {
   console.log('Starting test data generation...');
 
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < SEEDING_COUNT; i++) {
     // 최근 3주의 데이터 생성
     for (let weekOffset = 0; weekOffset < 3; weekOffset++) {
       try {
