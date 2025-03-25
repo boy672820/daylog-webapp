@@ -35,9 +35,10 @@ const schema = a
         contents: a.hasMany('SummaryContent', ['summaryId', 'userId']),
       })
       .identifier(['summaryId', 'userId'])
+      .secondaryIndexes((index) => [index('userId').sortKeys(['startDate'])])
       .authorization((allow) => [
-        allow.owner().to(['read', 'create', 'update']),
-        allow.publicApiKey(),
+        allow.publicApiKey().to(['read']),
+        allow.owner().to(['create', 'update']),
       ]),
 
     SummaryContent: a
