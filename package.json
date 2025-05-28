@@ -91,7 +91,7 @@
   "devDependencies": {
     "@aws-amplify/backend": "^1.14.0",
     "@aws-amplify/backend-cli": "^1.4.9",
-    "@aws-lambda-powertools/logger": "^2.15.0",
+    "@aws-lambda-powertools/logger": "^2.20.0",
     "@eslint/eslintrc": "^3",
     "@types/aws-lambda": "^8.10.147",
     "@types/jest": "^29.5.12",
